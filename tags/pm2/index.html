@@ -5,7 +5,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Jarvan">
 <meta property="article:tag" content="javascript vue node typescript ionic npm">
-<meta name="twitter:card" content="summary"><title>标签: pm2 | Jiangyh's Blog</title><link ref="canonical" href="https://bestjarvan.gitee.io/tags/pm2/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+<meta name="twitter:card" content="summary"><title>标签: pm2 | Jiangyh's Blog</title><link ref="canonical" href="https://bestjarvan.gitee.io/tags/pm2/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
 var CONFIG = {
   root: '/',
   algolia: undefined,
@@ -368,42 +368,28 @@ if (Array.isArray(assistSearchList)) {
       }
     }
   }, false);
-}, false);</script><div id="pjax-reload"><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script></div><script data-pjax="">function loadDisqus () {
-  if (!document.getElementById('disqus_thread')) {
+}, false);</script><div id="pjax-reload"><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script></div><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js" data-pjax=""></script><script src="https://cdn.jsdelivr.net/npm/js-md5@latest/src/md5.min.js" data-pjax=""></script><script data-pjax="">function loadGitalk () {
+  if (!document.getElementById('gitalk-container')) {
     return;
   }
-  if (window.DISQUS) {
-    DISQUS.reset({
-      reload: true,
-      config: function () {
-        this.page.url = '';
-        this.page.identifier = 'tags/pm2/index.html';
-        this.page.title = '';
-      }
-    });
-  } else {
-    var d = document;
-    var sc = d.createElement('script');
-    var se = d.createElement('script');
 
-    if (true) {
-      sc.src = 'https://jarvanblog.disqus.com/count.js';
-      sc.id = 'dsq-count-scr';
-      sc.async = true;
-      if (true) {
-        sc.setAttribute('data-pjax', '');
-      }
-      (d.head || d.body).appendChild(sc);
-    }
-    se.src = 'https://jarvanblog.disqus.com/embed.js';
-    (d.head || d.body).appendChild(se);
-  }
+  var gitalk = new Gitalk({
+    id: md5(window.location.pathname.slice(1)),
+    clientID: '90a70ca67fe841a80b16',
+    clientSecret: 'fc0d2c7de421e284ceb2b8801c133660c8e99dd3',
+    repo: 'jarvan',
+    owner: 'BestJarvan',
+    admin: ['BestJarvan'],
+    distractionFreeMode: 'false',
+    language: 'zh-CN'
+  });
+  gitalk.render('gitalk-container');
 }
 
 if (true) {
-  loadDisqus();
+  loadGitalk();
 } else {
-  window.addEventListener('DOMContentLoaded', loadDisqus, false);
+  window.addEventListener('DOMContentLoaded', loadGitalk, false);
 }</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script><!-- hexo injector body_end start --><script>
 // Check that service workers are supported
 if ('serviceWorker' in navigator) {
