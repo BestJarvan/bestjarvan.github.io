@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'hytmr55';
+  src: url("https://cdn.jsdelivr.net/gh/CrazyZhang666/HexoStaticFile/font/hytmr55.woff");
+  font-display: swap;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'hytmr55' !important;
+}
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
