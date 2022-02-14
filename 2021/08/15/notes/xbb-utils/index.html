@@ -5,12 +5,12 @@
 <meta property="og:site_name" content="Jiangyh&#39;s Blog">
 <meta property="og:description" content="为什么选择开发utils包？  方便代码的快速维护  方便一套代码部署多个项目以及新项目的快速启动  为后期需求踩坑">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bestjarvan.gitee.io/doc-assets/202112221047229.png">
-<meta property="og:image" content="https://bestjarvan.gitee.io/doc-assets/202112221047515.png">
-<meta property="og:image" content="https://bestjarvan.gitee.io/doc-assets/202112221047549.png">
-<meta property="og:image" content="https://bestjarvan.gitee.io/doc-assets/202112221047925.png">
-<meta property="og:image" content="https://bestjarvan.gitee.io/doc-assets/202112221047418.png">
-<meta property="og:image" content="https://bestjarvan.gitee.io/doc-assets/202112221047096.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047229.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047515.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047549.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047925.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047418.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047096.png">
 <meta property="article:published_time" content="2021-08-15T09:36:00.000Z">
 <meta property="article:modified_time" content="2021-08-15T09:36:00.000Z">
 <meta property="article:author" content="Jarvan">
@@ -21,7 +21,7 @@
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://bestjarvan.gitee.io/doc-assets/202112221047229.png"><title>xbb-utils开发规范 | Jiangyh's Blog</title><link ref="canonical" href="https://bestjarvan.gitee.io/2021/08/15/notes/xbb-utils/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047229.png"><title>xbb-utils开发规范 | Jiangyh's Blog</title><link ref="canonical" href="https://bestjarvan.gitee.io/2021/08/15/notes/xbb-utils/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
 var CONFIG = {
   root: '/',
   algolia: undefined,
@@ -119,11 +119,11 @@ window.CONFIG = CONFIG;</script><!-- hexo injector head_end start --><link rel="
 <p>备注：因为使用了自动文档生成工具，所以为了避免文档输出混乱，备注需要统一的规则。除<code>types</code>文件下的方法，其余的都需要添加<code>@ignore</code>阻止文档的自动生成，</p>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="/doc-assets/202112221047229.png"  alt="图1">
+          src="/images/loading.svg" data-src="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047229.png"  alt="图1">
       </p>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="/doc-assets/202112221047515.png"  alt="图2">
+          src="/images/loading.svg" data-src="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047515.png"  alt="图2">
       </p>
 
         <h3 id="单测"   >
@@ -132,15 +132,15 @@ window.CONFIG = CONFIG;</script><!-- hexo injector head_end start --><link rel="
 <li><code>unit/index.spec.ts</code>文件用来测试实例是否挂载了对应的方法(<code>/src/core/**.ts</code>)，每次在<code>core</code>下新增方法后，都需要到这个文件下的对应单测模块中添加测试实例，用于确保实例有此方法，相当于双重保险；</li>
 <li><code>unit/core/**.spec.ts</code>为对应的<code>core</code>下的核心单测文件，每个单测方法都有一个大的<code>describe</code>包裹数个<code>it</code>，方便单测报错时，定位具体哪个文件下的哪个方法报错，错误日志会输出<code>describe</code>和<code>it</code>的描述文案；<br> 
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="/doc-assets/202112221047549.png" >
+          src="/images/loading.svg" data-src="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047549.png" >
       </li>
 <li>单测文件需要把要测试的代码中的每一个分支，每一行代码，每一个判断都要覆盖，需要完成方法覆盖100%，分支覆盖98%，行数覆盖100%的条件，推荐全部100%；<br> 
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="/doc-assets/202112221047925.png" >
+          src="/images/loading.svg" data-src="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047925.png" >
       </li>
 <li>单测结果可以在控制台或者<code>coverage/lcov-report/index.html</code>查看详情。<br> 
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="/doc-assets/202112221047418.png" >
+          src="/images/loading.svg" data-src="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047418.png" >
       <ul>
 <li>第一行10x 代表当前行走了10次</li>
 <li>黄色img[0]表示单测这行代码没有覆盖到</li>
@@ -160,7 +160,7 @@ window.CONFIG = CONFIG;</script><!-- hexo injector head_end start --><link rel="
       <p>需要用到的项目，使用<code>npm i -S xbb-utils</code>来安装最新版本，之后再需要用到的页面<code>import xbb from &#39;xbb-utils&#39;</code></p>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="/doc-assets/202112221047096.png"  alt="代码提示">
+          src="/images/loading.svg" data-src="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047096.png"  alt="代码提示">
       </p>
 
         <h3 id="功能开发"   >

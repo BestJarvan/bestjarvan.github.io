@@ -5,10 +5,10 @@
 <meta property="og:site_name" content="Jiangyh&#39;s Blog">
 <meta property="og:description" content="项目中经常会用到某些方法，比如格式化时间戳，比如判断环境等等，笔者最初是把这些方法抽离出来写成公共方法，但由于后期项目扩展每次都要复制这个工具文件很是麻烦且效率低下，发布npm包正好解决了这个痛点，正好借此机会重构成ts文件并发布npm包。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bestjarvan.gitee.io/doc-assets/202201171509157.png">
-<meta property="og:image" content="https://bestjarvan.gitee.io/doc-assets/202201171509630.png">
-<meta property="og:image" content="https://bestjarvan.gitee.io/doc-assets/202201171509895.png">
-<meta property="og:image" content="https://bestjarvan.gitee.io/doc-assets/202201171509773.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509157.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509630.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509895.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509773.png">
 <meta property="article:published_time" content="2020-04-14T10:48:00.000Z">
 <meta property="article:modified_time" content="2020-04-14T10:48:00.000Z">
 <meta property="article:author" content="Jarvan">
@@ -20,7 +20,7 @@
 <meta property="article:tag" content="pm2">
 <meta property="article:tag" content="typedoc">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://bestjarvan.gitee.io/doc-assets/202201171509157.png"><title>Typescript+verdaccio+pm2构建私有工具包 | Jiangyh's Blog</title><link ref="canonical" href="https://bestjarvan.gitee.io/2020/04/14/npm/Typescript+verdaccio/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509157.png"><title>Typescript+verdaccio+pm2构建私有工具包 | Jiangyh's Blog</title><link ref="canonical" href="https://bestjarvan.gitee.io/2020/04/14/npm/Typescript+verdaccio/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
 var CONFIG = {
   root: '/',
   algolia: undefined,
@@ -102,7 +102,7 @@ window.CONFIG = CONFIG;</script><!-- hexo injector head_end start --><link rel="
 <p><code>jest --coverage // 生成测试覆盖率</code><br /></p>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="/doc-assets/202201171509157.png"  alt="测试结果">
+          src="/images/loading.svg" data-src="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509157.png"  alt="测试结果">
       </p>
 
         <h3 id="文档输出"   >
@@ -120,7 +120,7 @@ window.CONFIG = CONFIG;</script><!-- hexo injector head_end start --><link rel="
 </ol>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="/doc-assets/202201171509630.png"  alt="gitee pages">
+          src="/images/loading.svg" data-src="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509630.png"  alt="gitee pages">
       </p>
 
         <h3 id="打包"   >
@@ -161,11 +161,11 @@ window.CONFIG = CONFIG;</script><!-- hexo injector head_end start --><link rel="
           <a href="#项目中使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#项目中使用" class="headerlink" title="项目中使用"></a>项目中使用</h3>
       <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="/doc-assets/202201171509895.png"  alt="代码提示">
+          src="/images/loading.svg" data-src="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509895.png"  alt="代码提示">
       </p>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="/doc-assets/202201171509773.png"  alt="代码提示">
+          src="/images/loading.svg" data-src="https://cdn.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509773.png"  alt="代码提示">
       </p>
 <p>[^pm2]:  * <code>pm2 start verdaccio</code> 启动verdaccio<br />* <code>pm2 stop verdaccio(all) </code> 停掉verdaccio(或全部)<br />* <code>pm2 delete verdaccio</code> 删除verdaccio<br />* <code>pm2 show verdaccio</code> 显示verdaccio运行日志</p>
 <p>[^nrm]: * <code>nrm add mynpm http://localhost:4873</code> 添加本地源<br />* <code>nrm use mynpm</code> 切换本地源<br />* <code>nrm ls</code> 查看本地所有源</p>
