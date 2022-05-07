@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://bestjarvan.gitee.io/2022/05/07/vue/vue-init/</loc>
+    
+    <lastmod>2022-05-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bestjarvan.gitee.io/2022/05/07/wechat/wx-html/</loc>
     
     <lastmod>2022-05-07</lastmod>
@@ -95,6 +104,15 @@
     <loc>https://bestjarvan.gitee.io/2021/08/15/notes/xbb-utils/</loc>
     
     <lastmod>2021-08-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/2021/08/10/vue/memory/</loc>
+    
+    <lastmod>2021-08-10</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -254,6 +272,41 @@
 
   
   <url>
+    <loc>https://bestjarvan.gitee.io/tags/ionic2/</loc>
+    <lastmod>2022-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/cordova/</loc>
+    <lastmod>2022-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/angular/</loc>
+    <lastmod>2022-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/jpush/</loc>
+    <lastmod>2022-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/jquery/</loc>
+    <lastmod>2022-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://bestjarvan.gitee.io/tags/javascript/</loc>
     <lastmod>2022-05-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -297,41 +350,6 @@
   
   <url>
     <loc>https://bestjarvan.gitee.io/tags/input/</loc>
-    <lastmod>2022-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/ionic2/</loc>
-    <lastmod>2022-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/cordova/</loc>
-    <lastmod>2022-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/angular/</loc>
-    <lastmod>2022-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/jpush/</loc>
-    <lastmod>2022-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/jquery/</loc>
     <lastmod>2022-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -443,13 +461,6 @@
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/tags/vue%E6%BA%90%E7%A0%81/</loc>
-    <lastmod>2022-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://bestjarvan.gitee.io/tags/nrm/</loc>
     <lastmod>2022-05-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -457,7 +468,14 @@
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/tags/wechat/</loc>
+    <loc>https://bestjarvan.gitee.io/tags/memory/</loc>
+    <lastmod>2022-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/vue%E6%BA%90%E7%A0%81/</loc>
     <lastmod>2022-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -470,17 +488,24 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/wechat/</loc>
+    <lastmod>2022-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
-    <loc>https://bestjarvan.gitee.io/categories/js/</loc>
+    <loc>https://bestjarvan.gitee.io/categories/ionic2/</loc>
     <lastmod>2022-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/categories/ionic2/</loc>
+    <loc>https://bestjarvan.gitee.io/categories/js/</loc>
     <lastmod>2022-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
