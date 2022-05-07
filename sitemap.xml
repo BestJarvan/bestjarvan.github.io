@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://bestjarvan.gitee.io/2022/05/07/vue/vue-init/</loc>
+    <loc>https://bestjarvan.gitee.io/2022/05/07/wechat/wx-html/</loc>
     
     <lastmod>2022-05-07</lastmod>
     
@@ -11,9 +11,9 @@
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/2022/05/07/wechat/wx-html/</loc>
+    <loc>https://bestjarvan.gitee.io/2022/04/10/vue/vue-init/</loc>
     
-    <lastmod>2022-05-07</lastmod>
+    <lastmod>2022-04-10</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
