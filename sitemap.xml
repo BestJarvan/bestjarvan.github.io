@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://bestjarvan.gitee.io/2022/08/15/js/call,apply,bind&this/</loc>
+    <loc>https://bestjarvan.gitee.io/2022/08/15/js/%E6%89%8B%E5%86%99call%E3%80%81apply%E3%80%81bind%E4%B8%8Ethis%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2022-08-16</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/2022/06/22/notes/code-readability/</loc>
+    <loc>https://bestjarvan.gitee.io/2022/06/22/notes/%E4%BB%A3%E7%A0%81%E5%8F%AF%E8%AF%BB%E6%80%A7/</loc>
     
     <lastmod>2022-06-22</lastmod>
     
@@ -92,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/2021/12/30/notes/JavaScript-The-Good-Parts/</loc>
+    <loc>https://bestjarvan.gitee.io/2021/12/30/notes/JavaScript%E8%AF%AD%E8%A8%80%E7%B2%BE%E7%B2%B9/</loc>
     
     <lastmod>2021-12-30</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/2020/11/13/js/input-20/</loc>
+    <loc>https://bestjarvan.gitee.io/2020/11/13/js/input%E8%B6%85%E8%BF%8710^20%E7%A7%91%E5%AD%A6%E8%AE%B0%E6%95%B0%E6%B3%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
     
     <lastmod>2020-11-13</lastmod>
     
@@ -218,7 +218,7 @@
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/2018/03/24/wechat/wx-A-Z/</loc>
+    <loc>https://bestjarvan.gitee.io/2018/03/24/wechat/wx-city-picker/</loc>
     
     <lastmod>2018-03-24</lastmod>
     
@@ -227,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/2018/03/24/wechat/wx-city-picker/</loc>
+    <loc>https://bestjarvan.gitee.io/2018/03/24/wechat/wx-A-Z/</loc>
     
     <lastmod>2018-03-24</lastmod>
     
@@ -272,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/2017/07/25/js/serve/</loc>
+    <loc>https://bestjarvan.gitee.io/2017/07/25/js/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%8F%91%E5%B8%83/</loc>
     
     <lastmod>2017-07-25</lastmod>
     
@@ -297,7 +297,7 @@
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/tags/jpush/</loc>
+    <loc>https://bestjarvan.gitee.io/tags/cordova/</loc>
     <lastmod>2022-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -311,7 +311,7 @@
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/tags/cordova/</loc>
+    <loc>https://bestjarvan.gitee.io/tags/jpush/</loc>
     <lastmod>2022-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -388,27 +388,6 @@
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/tags/macOS/</loc>
-    <lastmod>2022-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/Xcode/</loc>
-    <lastmod>2022-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/Simulator/</loc>
-    <lastmod>2022-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://bestjarvan.gitee.io/tags/typescript/</loc>
     <lastmod>2022-08-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -416,56 +395,7 @@
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/tags/jest/</loc>
-    <lastmod>2022-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://bestjarvan.gitee.io/tags/npm/</loc>
-    <lastmod>2022-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/vue2/</loc>
-    <lastmod>2022-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/git/</loc>
-    <lastmod>2022-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/vue/</loc>
-    <lastmod>2022-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/vue%E6%BA%90%E7%A0%81/</loc>
-    <lastmod>2022-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/shell/</loc>
-    <lastmod>2022-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/memory/</loc>
     <lastmod>2022-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -493,6 +423,13 @@
   </url>
   
   <url>
+    <loc>https://bestjarvan.gitee.io/tags/jest/</loc>
+    <lastmod>2022-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://bestjarvan.gitee.io/tags/typedoc/</loc>
     <lastmod>2022-08-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -501,6 +438,69 @@
   
   <url>
     <loc>https://bestjarvan.gitee.io/tags/nrm/</loc>
+    <lastmod>2022-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/macOS/</loc>
+    <lastmod>2022-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/Xcode/</loc>
+    <lastmod>2022-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/Simulator/</loc>
+    <lastmod>2022-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/vue2/</loc>
+    <lastmod>2022-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/git/</loc>
+    <lastmod>2022-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/vue/</loc>
+    <lastmod>2022-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/memory/</loc>
+    <lastmod>2022-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/vue%E6%BA%90%E7%A0%81/</loc>
+    <lastmod>2022-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/shell/</loc>
     <lastmod>2022-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -537,6 +537,13 @@
   </url>
   
   <url>
+    <loc>https://bestjarvan.gitee.io/categories/npm/</loc>
+    <lastmod>2022-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://bestjarvan.gitee.io/categories/notes/</loc>
     <lastmod>2022-08-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -545,13 +552,6 @@
   
   <url>
     <loc>https://bestjarvan.gitee.io/categories/vue/</loc>
-    <lastmod>2022-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/categories/npm/</loc>
     <lastmod>2022-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
