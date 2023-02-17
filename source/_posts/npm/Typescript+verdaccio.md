@@ -13,15 +13,22 @@ tags:
   - jest
   - typedoc
 ---
-> 项目中经常会用到某些方法，比如格式化时间戳，比如判断环境等等。
-笔者最初是把这些方法抽离出来写成公共方法，但由于后期项目扩展每次都要复制这个工具文件很是麻烦且效率低下，发布npm包正好解决了这个痛点，正好借此机会重构成ts文件并发布npm包。
-本工具内置vue2.x + ts，方便开发中调试代码。
-本工具包内部集成了lodash的一些方法，详见`src/core/lodash-tool`
-持续迭代中
+### 前言
+1. 项目中经常会用到某些方法，比如格式化时间戳，比如判断环境等等。  
+笔者最初是把这些方法抽离出来写成公共方法，但由于后期项目扩展每次都要复制这个工具文件很是麻烦且效率低下，发布npm包正好解决了这个痛点，正好借此机会重构成ts文件并发布npm包。  
 
+2. 本工具内置`vue2.x + ts`，方便开发中调试代码。  
+本工具包内部集成了`lodash`的一些方法，详见[文档](https://bestjarvan.github.io/utils-tools/docs/interfaces/lodashtool.html)或者`src/core/lodash-tool`  
+
+3. 本工具使用`typedoc`根据注释自动生成文档，可搜索方法
+
+4. 本项目npm包单元测试通过率100%，同时经过公司多个项目沉淀，且稳定运行，大家如有需要可直接下载拓展使用
+
+[博客传送门](https://bestjarvan.gitee.io/2020/04/14/npm/Typescript+verdaccio/index.html)
+
+本文只简要介绍下整个流程，具体项目[GitHub](https://github.com/BestJarvan/utils-tools)，欢迎Start、Fork。thx~   XD
 
 <!-- more -->
-本文只简要介绍下整个流程，具体参考[utils项目](https://github.com/BestJarvan/utils-tools.git)
 
 ### 简要
 
