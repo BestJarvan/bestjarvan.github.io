@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://bestjarvan.gitee.io/2022/12/25/vue/micro-frontends/</loc>
+    <lastmod>2023-03-20</lastmod>
+  </url>
+  <url>
     <loc>https://bestjarvan.gitee.io/2022/08/15/js/%E6%89%8B%E5%86%99call%E3%80%81apply%E3%80%81bind%E4%B8%8Ethis%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2022-08-16</lastmod>
   </url>
@@ -81,11 +85,11 @@
     <lastmod>2018-06-08</lastmod>
   </url>
   <url>
-    <loc>https://bestjarvan.gitee.io/2018/03/24/wechat/wx-city-picker/</loc>
+    <loc>https://bestjarvan.gitee.io/2018/03/24/wechat/wx-A-Z/</loc>
     <lastmod>2018-03-24</lastmod>
   </url>
   <url>
-    <loc>https://bestjarvan.gitee.io/2018/03/24/wechat/wx-A-Z/</loc>
+    <loc>https://bestjarvan.gitee.io/2018/03/24/wechat/wx-city-picker/</loc>
     <lastmod>2018-03-24</lastmod>
   </url>
   <url>
