@@ -478,7 +478,7 @@ gitalk:
   # Github username.
   owner: BestJarvan
   # Github repository.
-  repo: jarvan
+  repo: BestJarvan
   # Github Application Client ID.
   client_id: 90a70ca67fe841a80b16
   # Github Application Client Secret.
