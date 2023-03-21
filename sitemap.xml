@@ -348,13 +348,6 @@
   </url>
   
   <url>
-    <loc>https://jiangyh.cn/tags/input/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://jiangyh.cn/tags/cookie/</loc>
     <lastmod>2023-03-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -377,6 +370,13 @@
   
   <url>
     <loc>https://jiangyh.cn/tags/sessionStorage/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangyh.cn/tags/input/</loc>
     <lastmod>2023-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
