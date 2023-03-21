@@ -397,6 +397,97 @@
   </url>
   
   <url>
+    <loc>https://jiangyh.cn/tags/typescript/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangyh.cn/tags/npm/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangyh.cn/tags/verdaccio/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangyh.cn/tags/rollup/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangyh.cn/tags/pm2/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangyh.cn/tags/jest/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangyh.cn/tags/typedoc/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangyh.cn/tags/nrm/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangyh.cn/tags/macOS/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangyh.cn/tags/Xcode/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangyh.cn/tags/Simulator/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangyh.cn/tags/vue2/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangyh.cn/tags/git/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://jiangyh.cn/tags/vue/</loc>
     <lastmod>2023-03-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -459,97 +550,6 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://jiangyh.cn/tags/macOS/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jiangyh.cn/tags/Xcode/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jiangyh.cn/tags/Simulator/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jiangyh.cn/tags/typescript/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jiangyh.cn/tags/jest/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jiangyh.cn/tags/npm/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jiangyh.cn/tags/vue2/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jiangyh.cn/tags/git/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jiangyh.cn/tags/verdaccio/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jiangyh.cn/tags/rollup/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jiangyh.cn/tags/pm2/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jiangyh.cn/tags/typedoc/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jiangyh.cn/tags/nrm/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
@@ -574,14 +574,7 @@
   </url>
   
   <url>
-    <loc>https://jiangyh.cn/categories/vue/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jiangyh.cn/categories/wechat/</loc>
+    <loc>https://jiangyh.cn/categories/npm/</loc>
     <lastmod>2023-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -595,7 +588,14 @@
   </url>
   
   <url>
-    <loc>https://jiangyh.cn/categories/npm/</loc>
+    <loc>https://jiangyh.cn/categories/vue/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangyh.cn/categories/wechat/</loc>
     <lastmod>2023-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
