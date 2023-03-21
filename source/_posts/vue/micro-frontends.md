@@ -59,7 +59,7 @@ tags:
 
 1. 手动加载(可手动，可自动，自动加载需要修改main.js入口文件)
 
-```vue
+```html
 <!-- qiankun路由落地页面 -->
 <template>
   <div :id="instantId"></div>
@@ -109,7 +109,7 @@ export default {
   },
 
   destroyed () {
-		if (!this.app) return
+    if (!this.app) return
     this.app.unmount()
     this.app = null
   },
@@ -187,7 +187,7 @@ export async function unmount() {
   instance.$destroy();
   instance.$el.innerHTML = '';
   instance = null;
-//  router = null;
+  // router = null;
 }
 
 ```
@@ -264,19 +264,19 @@ module.exports = {
 
 优点:
 
- 	1. 社区活跃，框架经过多个项目打磨，更加成熟
+  1. 社区活跃，框架经过多个项目打磨，更加成熟
   2. 社区demo多，案例多
   3. 完备的沙箱方案，js 沙箱做了 `SnapshotSandbox`、`LegacySandbox`、`ProxySandbox` 三套渐进增强方案，css 沙箱做了 `strictStyleIsolation`、`experimentalStyleIsolation` 两套适用不同场景的方案
 
 缺点:
 
- 	1. 项目侵入性强，接入成本高
- 	2. 页面展示多个子应用时，需要使用 `momery` 路由
+  1. 项目侵入性强，接入成本高
+  2. 页面展示多个子应用时，需要使用 `momery` 路由
   3. 官方文档比较简洁，需要多去社区看demo
 
 
 
-### 二. [wujie](https://github.com/Tencent/wujie/blob/master/examples/main-vue/src/main.js)
+### 二. [wujie](https://github.com/Tencent/wujie)
 
 ![img](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303201438420.webp)
 
@@ -301,7 +301,7 @@ preloadApp({
 
 2. 新建无界页面，路由跳这里
 
-```vue
+```html
 <template>
   <WujieVue
     width="100%"
@@ -392,7 +392,7 @@ if (window.__POWERED_BY_WUJIE__) {
 
 优点:
 
- 	1. 改造成本低，有基于vue的`wujie-vue`和react的` wujie-react`封装，开箱即用
+  1. 改造成本低，有基于vue的`wujie-vue`和react的` wujie-react`封装，开箱即用
   2. 子应用加载和普通 vue 组件加载并无二致，所有配置都收敛到组件的属性上。
   3. `webcomponent` + `shadowdom`、js-iframe原生沙箱
   4. 支持`plugin`
@@ -402,7 +402,7 @@ if (window.__POWERED_BY_WUJIE__) {
 
 缺点:
 
-   	1. 社区不如qiankun和micro-app活跃
+  1. 社区不如qiankun和micro-app活跃
 
 
 
@@ -468,22 +468,20 @@ export default routes
 
 3. 页面中使用，数据通信，生命周期
 
-```vue
+```html
 <!-- my-page.vue -->
 <template>
   <micro-app
     name='myApp'
     url='//localhost:9001'
     baseroute='/micro'
-		// 传递数据给子应用
-		:data='dataForChild'
+    :data='dataForChild'
     @created='handleLifecycle'
     @beforemount='handleLifecycle'
     @mounted='handleLifecycle'
     @unmount='handleLifecycle'
     @error='handleLifecycle'
-		// 子应用传递事件
-		@datachange='handleDataChange'
+    @datachange='handleDataChange'
   ></micro-app>
 </template>
 
@@ -494,9 +492,9 @@ export default {
       dataForChild: {type: '发送给子应用的数据'}
     }
   },
-	methods: {
+  methods: {
     handleLifecycle (e) {
-			console.log('触发生命周期：', e.type)
+      console.log('触发生命周期：', e.type)
     },
     handleDataChange (e) {
       console.log('来自子应用的数据：', e.detail.data)
@@ -573,7 +571,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-	mode: "hash",
+  mode: "hash",
   // base: process.env.BASE_URL,
   base: window.__MICRO_APP_BASE_ROUTE__ || '/',
   routes
@@ -636,6 +634,3 @@ module.exports = {
 }
 
 ```
-
-
-
