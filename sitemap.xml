@@ -327,6 +327,13 @@
   </url>
   
   <url>
+    <loc>https://bestjarvan.gitee.io/tags/jquery/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://bestjarvan.gitee.io/tags/javascript/</loc>
     <lastmod>2023-03-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -335,13 +342,6 @@
   
   <url>
     <loc>https://bestjarvan.gitee.io/tags/event-loop/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/jquery/</loc>
     <lastmod>2023-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -495,6 +495,13 @@
   </url>
   
   <url>
+    <loc>https://bestjarvan.gitee.io/tags/memory/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://bestjarvan.gitee.io/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2023-03-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -523,21 +530,14 @@
   </url>
   
   <url>
-    <loc>https://bestjarvan.gitee.io/tags/vue%E6%BA%90%E7%A0%81/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestjarvan.gitee.io/tags/memory/</loc>
-    <lastmod>2023-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://bestjarvan.gitee.io/tags/shell/</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestjarvan.gitee.io/tags/vue%E6%BA%90%E7%A0%81/</loc>
     <lastmod>2023-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
