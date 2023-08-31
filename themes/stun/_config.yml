@@ -150,7 +150,7 @@ header:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: '/bg.jpeg'
+    url: https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221030367.jpeg
   # Mask effect of the background image.
   mask:
     enable: true
@@ -294,7 +294,7 @@ author:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: /avatar.jpeg
+    url: https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221028932.jpeg
     # If true, the avatar would be displayed in a circle.
     rounded: true
     # Opacity of avatar (value: 0 ~ 1)
@@ -384,8 +384,8 @@ heading_line: true
 reward:
   enable: true
   # Your QR code for collecting money.
-  alipay: /ali.png
-  wechat: /wx.png
+  alipay: https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221031585.png
+  wechat: https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221031231.png
 
 # ---------------------------------------------------------------
 # Post config
