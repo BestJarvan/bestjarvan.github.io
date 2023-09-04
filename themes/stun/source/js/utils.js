@@ -273,21 +273,28 @@ Stun.utils = Stun.$u = {
       selection.addRange(range)
 
       var text = selection.toString()
-      var input = document.createElement('input')
-      // Create a temporary input to make the
-      // execCommand command take effect.
-      input.style.display = 'none'
-      input.setAttribute('readonly', 'readonly')
-      input.setAttribute('value', text)
-      document.body.appendChild(input)
-      input.setSelectionRange(0, -1)
 
-      if (document.execCommand('copy')) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        var currentText = text + `
+// 作者：${CONFIG.author}
+// 地址：${location.href}`
+        navigator.clipboard.writeText(currentText).then(() => {
+          console.log('success');
+        });
+        return true
+      } else if (document.execCommand) {
+        var input = document.createElement('input')
+        // Create a temporary input to make the
+        // execCommand command take effect.
+        input.style.display = 'none'
+        input.setAttribute('readonly', 'readonly')
+        input.setAttribute('value', text)
+        document.body.appendChild(input)
+        input.setSelectionRange(0, -1)
         document.execCommand('copy')
         document.body.removeChild(input)
         return true
       }
-      document.body.removeChild(input)
     } catch (e) {
       return false
     }
@@ -539,11 +546,11 @@ Stun.utils = Stun.$u = {
         '</div>'
     )
 
-    if (type === 'simple' || type === 'carbon') {
-      btnContainer += '.highlight figcaption:not(".custom")'
-    } else {
-      btnContainer += '.highlight figcaption'
-    }
+    // if (type === 'simple' || type === 'carbon') {
+    //   btnContainer += '.highlight figcaption:not(".custom")'
+    // } else {
+    btnContainer += '.highlight figcaption'
+    // }
     // Add a copy button to the selected elements.
     $(btnContainer).append($copyIcon)
   },
