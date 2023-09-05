@@ -1,5 +1,6 @@
 ---
 title: 通过node调用Jenkins API完成构建过程
+date: 2023.08.28 19:52
 categories: 
   - node
 tags:
@@ -21,7 +22,7 @@ tags:
 
 <!-- more -->
 
-#### 一、构建脚本
+#### 构建脚本
 1. 首先我们在项目中新建(若没有)`build`文件夹，新建`jenkins.js`存放我们的脚本
 2. 安装[Jenkins](https://github.com/silas/node-jenkins) -> `npm install --save-dev jenkins`
 3. 示例代码如下
@@ -68,7 +69,7 @@ triggerBuild()
 
 此时我们已经可以触发构建流程，但是不够完美，发布分支需要我们写死，且我们并不知道构建进度，所以我们需要借助`child_process`查看分支和`jenkins.build.logStream`实时查看构建进度
 
-#### 二、动态配置分支名&输出进度
+#### 动态配置分支名&输出进度
 在第一步的基础上，我们进行完善
 ```javascript
 const Jenkins = require('jenkins')
@@ -166,7 +167,7 @@ function logBuild(id) {
 
 此时，我们已经完善了我们的发布脚本，但是项目中会有多个开发需要使用此脚本，认证信息如果可以动态配置，那就更好了。我们可以通过`node`脚本或者`shell`完成这一想法。
 
-#### 三、编写shell脚本完成用户账号信息配置
+#### 编写shell脚本完成用户账号信息配置
 1. `build`文件中新增`jenkins-init.sh`文件，参考第四步
 
 2. 文件内脚本需要完成三个个操作
@@ -182,7 +183,7 @@ function logBuild(id) {
 
     ![image-20230831200256923](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202308312002955.png)
 
-#### 四、完整版
+#### 完整版
 jenkins-init
 ```shell
 #!/usr/bin/env sh
@@ -313,3 +314,11 @@ function logBuild(id) {
 开发拉取代码后，首次需要运行`npm run init:jen`生成配置文件，之后每次发布测试环境可以运行`npm run deploy:jen`触发构建，若需要合并test分支，则可以在jenkins中配置自动合并。
 
 至此，我们实现了可自由配置账号信息，手动触发jenkins构建，并且查看构建进度的脚本。
+
+
+
+#### 第二版，通过CLI发布
+
+此版本更适合多项目发布，提取到npm可全局安装或项目安装，比第一版本更加灵活。
+
+[从零搭建前端脚手架CLI工具](https://www.jiangyh.cn/2023/09/05/node/myself-cli/index.html)
