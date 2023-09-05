@@ -14,7 +14,7 @@ tags:
 首先从零搭建一套前端脚手架需要用到最核心的一个库就是[`commander`](https://github.com/tj/commander.js/blob/HEAD/Readme_zh-CN.md)
 
 ![commanderjs](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051127055.png)
-
+<!-- more -->
 完整目录
 
 ```javascript
