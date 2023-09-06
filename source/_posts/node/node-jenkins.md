@@ -21,6 +21,7 @@ tags:
 ![image-20230831200429836](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202308312004869.png)
 
 <!-- more -->
+[github仓库](https://github.com/BestJarvan/helper-cli)
 
 #### 构建脚本
 1. 首先我们在项目中新建(若没有)`build`文件夹，新建`jenkins.js`存放我们的脚本
