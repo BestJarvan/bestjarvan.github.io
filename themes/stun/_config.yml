@@ -293,7 +293,7 @@ author:
     # In theme directory (source/images): /images/avatar.png
     # In site directory (source/uploads): /uploads/avatar.png
     # You can also use a link of image.
-    url: https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221028932.jpeg
+    url: https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201454997.png
     # If true, the avatar would be displayed in a circle.
     rounded: true
     # Opacity of avatar (value: 0 ~ 1)
