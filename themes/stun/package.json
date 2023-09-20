@@ -5,6 +5,7 @@
   "homepage": "https://liuyib.github.io",
   "scripts": {
     "commit": "git cz",
+    "build": "hexo clean && hexo g && hexo deploy",
     "release": "standard-version",
     "release:lts": "npm run release -- --release-as",
     "release:pre": "npm run release -- --prerelease",
