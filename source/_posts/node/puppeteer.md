@@ -1,5 +1,5 @@
 ---
-title: 解决安装puppeteer依赖的chromium内核下载失败问题
+title: 解决puppeteer依赖chromium内核下载失败问题
 date: 2023.09.19 11:28
 categories: 
   - node
