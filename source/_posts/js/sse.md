@@ -11,14 +11,16 @@ tags:
 
 >最近收到一个需求，需要做一套消息中心，需求倒是很简单，再用户有新消息时推送给web页面，提示用户有新消息未读，最初版本用短轮询方案实现，若是局部组件，可关闭页面后结束轮询，但是此消息中心是一个全局组件，只要开启页面就开始轮询，体验不佳，看着network密密麻麻的请求头都大了，随使用SSE方案。
 
-![短轮询](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/WX20231205-151930.png)
-
 ### 一、 对于这种消息推送目前几个成熟方案：
 
 1. 客户端轮询 (短轮询)
 2. 服务端轮询 (长轮询)
 3. WebSocket
 4. SSE (Serve-Send-Events)
+
+<!-- more -->
+
+![短轮询](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/WX20231205-151930.png)
 
 ### 二、各方案间区别：
 
