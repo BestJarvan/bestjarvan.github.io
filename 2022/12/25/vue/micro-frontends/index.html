@@ -1,0 +1,658 @@
+<!DOCTYPE html><html lang="zh-CN"><head><link rel="apple-touch-icon" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="180x180" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="152x152" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="120x120" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="76x76" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicon.png"><link rel="apple-touch-icon-precomposed" href="/favicon.png"><link rel="shortcut icon" href="/favicon.png"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="theme-color" content="#54bcff"><link rel="manifest" href="/manifest.json?v=2.6.2"><link rel="icon" href="/favicon1.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/favicon2.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="google-site-verification" content="ooqktqoO7JqLW09Wo87-gFgWun7T-VE055I9m2IsoXM"><meta name="msvalidate.01" content="E990DB0CBECF200DD90F7EC1F2242CA6"><meta name="baidu-site-verification" content="codeva-IHIk9G7I2J"><meta name="description" content="什么是微前端       微前端类似微服务，并不是指某一具体的技术，而是一种整合了技术、策略和方法的宏观架构方案，是一种将多个可独立交付的小型前端应用聚合为一个整体的架构风格。                     为什么选择微前端       微前端主要解决了两个问题:  项目迭代导致巨石应用，难以维护  兼容历史应用，实现增量开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微前端方案对比">
+<meta property="og:url" content="https://www.jiangyh.cn/2022/12/25/vue/micro-frontends/index.html">
+<meta property="og:site_name" content="Jiangyh&#39;s Blog">
+<meta property="og:description" content="什么是微前端       微前端类似微服务，并不是指某一具体的技术，而是一种整合了技术、策略和方法的宏观架构方案，是一种将多个可独立交付的小型前端应用聚合为一个整体的架构风格。                     为什么选择微前端       微前端主要解决了两个问题:  项目迭代导致巨石应用，难以维护  兼容历史应用，实现增量开发">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303201601278.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303201438420.webp">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303171505687.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303161957251.image">
+<meta property="article:published_time" content="2022-12-25T12:48:00.000Z">
+<meta property="article:modified_time" content="2023-10-16T11:15:25.653Z">
+<meta property="article:author" content="Jarvan">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="微前端">
+<meta property="article:tag" content="qiankun">
+<meta property="article:tag" content="wujie">
+<meta property="article:tag" content="micro-app">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303201601278.png"><title>微前端方案对比 | Jiangyh's Blog</title><link ref="canonical" href="https://www.jiangyh.cn/2022/12/25/vue/micro-frontends/"><link rel="dns-prefetch" href="https://fastly.jsdelivr.net"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  author: 'Jarvan',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":false,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"carbon","highlight":"light","wordWrap":false},
+  reward: true,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: true,
+  pjax: {"avoidBanner":false},
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><!-- hexo injector head_end start --><link rel="manifest" href="/manifest.json" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner header-inner--height header-inner--bgcolor"><nav class="header-nav header-nav--sticky"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-book"></i></span><span class="header-nav-menu-item__text">文章</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/archives/"><span class="header-nav-submenu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-submenu-item__text">归档</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/categories/"><span class="header-nav-submenu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-submenu-item__text">分类</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/tags/"><span class="header-nav-submenu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-submenu-item__text">标签</span></a></div></div></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/about/"><span class="header-nav-menu-item__icon"><i class="fas fa-fingerprint"></i></span><span class="header-nav-menu-item__text">关于我</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-cannabis"></i></span><span class="header-nav-menu-item__text">其他</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/friend/"><span class="header-nav-submenu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-submenu-item__text">友链</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">微前端方案对比</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-12-25</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-10-16</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">2.4k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">21分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body">
+        <h2 id="什么是微前端"   >
+          <a href="#什么是微前端" class="heading-link"><i class="fas fa-link"></i></a><a href="#什么是微前端" class="headerlink" title="什么是微前端"></a>什么是微前端</h2>
+      <p>微前端类似微服务，并不是指某一具体的技术，而是一种整合了技术、策略和方法的<strong>宏观架构方案</strong>，是一种将多个可独立交付的小型前端应用聚合为一个整体的架构风格。</p>
+
+        <h2 id="为什么选择微前端"   >
+          <a href="#为什么选择微前端" class="heading-link"><i class="fas fa-link"></i></a><a href="#为什么选择微前端" class="headerlink" title="为什么选择微前端"></a>为什么选择微前端</h2>
+      <p>微前端主要解决了两个问题:</p>
+<ol>
+<li><p>项目迭代导致巨石应用，难以维护</p>
+</li>
+<li><p>兼容历史应用，实现增量开发</p>
+</li>
+</ol>
+<span id="more"></span>
+
+<p>优点:</p>
+<ol>
+<li><p>更灵活的技术栈选择</p>
+</li>
+<li><p>拓展多个技术团队</p>
+</li>
+<li><p>更快且独立的部署</p>
+</li>
+<li><p>…</p>
+</li>
+</ol>
+<p>缺点:</p>
+<ol>
+<li>用户层面，不连贯的体验问题</li>
+<li>多项目、多语言造成的维护成本增加</li>
+</ol>
+
+        <h2 id="Why-Not-Iframe"   >
+          <a href="#Why-Not-Iframe" class="heading-link"><i class="fas fa-link"></i></a><a href="#Why-Not-Iframe" class="headerlink" title="Why Not Iframe"></a><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.yuque.com/kuitos/gky7yw/gesexv" >Why Not Iframe</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></h2>
+      
+        <h2 id="微前端框架选择"   >
+          <a href="#微前端框架选择" class="heading-link"><i class="fas fa-link"></i></a><a href="#微前端框架选择" class="headerlink" title="微前端框架选择"></a>微前端框架选择</h2>
+      <p>本次改造使用一下技术栈</p>
+<p>基座应用vue2.x</p>
+<p>子应用vue2.x</p>
+<p>路由模式均为<code>hash</code></p>
+
+        <h3 id="一-qiankun"   >
+          <a href="#一-qiankun" class="heading-link"><i class="fas fa-link"></i></a><a href="#一-qiankun" class="headerlink" title="一. qiankun"></a>一. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/umijs/qiankun" >qiankun</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></h3>
+      <p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303201601278.png"  alt="d1a6cb48359cf96be6b4cd750a241dfa.png">
+      </p>
+<p>图片来源：<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://blog.csdn.net/xgangzai/article/details/128489706" >https://blog.csdn.net/xgangzai/article/details/128489706</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+
+        <h4 id="基座应用"   >
+          <a href="#基座应用" class="heading-link"><i class="fas fa-link"></i></a><a href="#基座应用" class="headerlink" title="基座应用"></a>基座应用</h4>
+      <ol>
+<li>手动加载(可手动，可自动，自动加载需要修改main.js入口文件)</li>
+</ol>
+<figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- qiankun路由落地页面 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">:id</span>=<span class="string">&quot;instantId&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> &#123; registerMicroApps, loadMicroApp, start &#125; <span class="keyword">from</span> <span class="string">&#x27;qiankun&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;index&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="attr">props</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 实例id</span></span></span><br><span class="line"><span class="language-javascript">    <span class="attr">instantId</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">type</span>: <span class="title class_">String</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">default</span>: <span class="string">&#x27;sub-app-viewport&#x27;</span></span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 入口</span></span></span><br><span class="line"><span class="language-javascript">    <span class="attr">entry</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">type</span>: <span class="title class_">String</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">default</span>: <span class="string">&#x27;//localhost:7101&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  mounted () &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">this</span>.$nextTick(<span class="keyword">async</span> () =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.$once(<span class="string">&#x27;unmount&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;%cqiankun unmount！！！&#x27;</span>, <span class="string">&#x27;color: orange;font-size: 32px&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">app</span>.<span class="title function_">unmount</span>(<span class="string">&#x27;#/qiankun&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">app</span> = <span class="literal">null</span></span></span><br><span class="line"><span class="language-javascript">      &#125;)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> <span class="title function_">getActiveRule</span> = (<span class="params">hash</span>) =&gt; <span class="function">(<span class="params">location</span>) =&gt;</span> location.<span class="property">hash</span>.<span class="title function_">startsWith</span>(hash);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">app</span> = <span class="title function_">loadMicroApp</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: <span class="string">&#x27;vueApp&#x27;</span>, <span class="comment">// app name registered</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">entry</span>: <span class="variable language_">this</span>.<span class="property">entry</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">container</span>: <span class="string">`#<span class="subst">$&#123;<span class="variable language_">this</span>.instantId&#125;</span>`</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">activeRule</span>: <span class="title function_">getActiveRule</span>(<span class="string">&#x27;#/qiankun&#x27;</span>),</span></span><br><span class="line"><span class="language-javascript">      &#125;, &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">singular</span>: <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">      &#125;)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;%cqiankun app =====&#x27;</span>, <span class="string">&#x27;color: orange;font-size: 32px&#x27;</span>, <span class="variable language_">this</span>.<span class="property">app</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  destroyed () &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">if</span> (!<span class="variable language_">this</span>.<span class="property">app</span>) <span class="keyword">return</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">this</span>.<span class="property">app</span>.<span class="title function_">unmount</span>()</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">this</span>.<span class="property">app</span> = <span class="literal">null</span></span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+<ol start="2">
+<li>路由改造</li>
+</ol>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// router.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Qiankun</span> <span class="keyword">from</span> <span class="string">&#x27;@/views/qiankun/index&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">Layout</span>,</span><br><span class="line">    <span class="attr">redirect</span>: <span class="string">&#x27;/dashboard&#x27;</span>,</span><br><span class="line">    <span class="attr">children</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;dashboard&#x27;</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&#x27;Dashboard&#x27;</span>,</span><br><span class="line">        <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;@/views/dashboard/index&#x27;</span>),</span><br><span class="line">        <span class="attr">meta</span>: &#123; <span class="attr">title</span>: <span class="string">&#x27;首页&#x27;</span>, <span class="attr">icon</span>: <span class="string">&#x27;dashboard&#x27;</span>, <span class="attr">affix</span>: <span class="literal">true</span> &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 匹配所有/qiankun路径，防止找不到报错404</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;qiankun/*&#x27;</span>, <span class="comment">// 在主应用中，所有的/qiankun/*路径指向子应用</span></span><br><span class="line">        <span class="attr">component</span>: <span class="title class_">Qiankun</span>,</span><br><span class="line">        <span class="attr">hidden</span>: <span class="literal">true</span></span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h4 id="子应用"   >
+          <a href="#子应用" class="heading-link"><i class="fas fa-link"></i></a><a href="#子应用" class="headerlink" title="子应用"></a>子应用</h4>
+      <ol>
+<li>改造入口文件，暴露生命周期</li>
+</ol>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./public-path&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> instance = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">render</span>(<span class="params">props = &#123;&#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; container &#125; = props;</span><br><span class="line"></span><br><span class="line">  instance = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">    router,</span><br><span class="line">    store,</span><br><span class="line">    <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> <span class="title function_">h</span>(<span class="title class_">App</span>),</span><br><span class="line">  &#125;).$mount(container ? container.<span class="title function_">querySelector</span>(<span class="string">&#x27;#app&#x27;</span>) : <span class="string">&#x27;#app&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!<span class="variable language_">window</span>.<span class="property">__POWERED_BY_QIANKUN__</span>) &#123;</span><br><span class="line">  <span class="title function_">render</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">bootstrap</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;[vue] vue app bootstraped&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">mount</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;[vue] props from main framework&#x27;</span>, props);</span><br><span class="line">  <span class="title function_">render</span>(props);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">unmount</span>(<span class="params"></span>) &#123;</span><br><span class="line">  instance.$destroy();</span><br><span class="line">  instance.<span class="property">$el</span>.<span class="property">innerHTML</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  instance = <span class="literal">null</span>;</span><br><span class="line">  <span class="comment">// router = null;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<ol start="2">
+<li>新增<code>public-path.js</code>文件，并在<code>main.js</code>引入</li>
+</ol>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="variable language_">window</span>.<span class="property">__POWERED_BY_QIANKUN__</span>) &#123;</span><br><span class="line">  <span class="comment">// eslint-disable-next-line no-undef</span></span><br><span class="line">  __webpack_public_path__ = <span class="variable language_">window</span>.<span class="property">__INJECTED_PUBLIC_PATH_BY_QIANKUN__</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<ol start="3">
+<li>改造路由</li>
+</ol>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// router.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Layout</span> form <span class="string">&#x27;@/components/layout&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; name &#125; <span class="keyword">from</span> <span class="string">&quot;../../package.json&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> flag = !!<span class="variable language_">window</span>.<span class="property">__POWERED_BY_QIANKUN__</span></span><br><span class="line"><span class="comment">// 动态前缀，可以写死，这里用的项目名作为前缀，如果独立运行则为/</span></span><br><span class="line"><span class="keyword">const</span> prefixPath = flag ? <span class="string">`/<span class="subst">$&#123;name&#125;</span>`</span> : <span class="string">&#x27;/&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: prefixPath,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">Layout</span>,</span><br><span class="line">    <span class="attr">children</span>: [</span><br><span class="line">      <span class="comment">// 其他的路由都写到这里</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;home&#x27;</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&#x27;home&#x27;</span>,</span><br><span class="line">        <span class="attr">meta</span>: &#123;</span><br><span class="line">          <span class="comment">// requireAuth: true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;@/views/home&#x27;</span>)</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></div></figure>
+
+<ol start="4">
+<li>改造<code>webpack</code>打包</li>
+</ol>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="keyword">const</span> &#123; name &#125; = <span class="built_in">require</span>(<span class="string">&#x27;./package.json&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">devServer</span>: &#123;</span><br><span class="line">    <span class="attr">headers</span>: &#123;</span><br><span class="line">      <span class="string">&quot;Access-Control-Allow-Origin&quot;</span>: <span class="string">&quot;*&quot;</span>,</span><br><span class="line">      <span class="string">&quot;Access-Control-Allow-Headers&quot;</span>: <span class="string">&quot;*&quot;</span>,</span><br><span class="line">      <span class="string">&quot;Access-Control-Allow-Methods&quot;</span>: <span class="string">&quot;*&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">port</span>: <span class="number">7101</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">chainWebpack</span>: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    config.<span class="property">output</span></span><br><span class="line">      .<span class="title function_">library</span>(<span class="string">`<span class="subst">$&#123;name&#125;</span>-[name]`</span>)</span><br><span class="line">      .<span class="title function_">libraryTarget</span>(<span class="string">&#x27;umd&#x27;</span>)</span><br><span class="line">      .<span class="title function_">jsonpFunction</span>(<span class="string">`webpackJsonp_<span class="subst">$&#123;name&#125;</span>`</span>)</span><br><span class="line">      .<span class="title function_">filename</span>(<span class="string">&#x27;js/[name].[hash].js&#x27;</span>)</span><br><span class="line">      .<span class="title function_">chunkFilename</span>(<span class="string">&#x27;js/[name].[hash].js&#x27;</span>)</span><br><span class="line">      .<span class="title function_">end</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+
+
+<p>优点:</p>
+<ol>
+<li>社区活跃，框架经过多个项目打磨，更加成熟</li>
+<li>社区demo多，案例多</li>
+<li>完备的沙箱方案，js 沙箱做了 <code>SnapshotSandbox</code>、<code>LegacySandbox</code>、<code>ProxySandbox</code> 三套渐进增强方案，css 沙箱做了 <code>strictStyleIsolation</code>、<code>experimentalStyleIsolation</code> 两套适用不同场景的方案</li>
+</ol>
+<p>缺点:</p>
+<ol>
+<li>项目侵入性强，接入成本高</li>
+<li>页面展示多个子应用时，需要使用 <code>momery</code> 路由</li>
+<li>官方文档比较简洁，需要多去社区看demo</li>
+</ol>
+
+        <h3 id="二-wujie"   >
+          <a href="#二-wujie" class="heading-link"><i class="fas fa-link"></i></a><a href="#二-wujie" class="headerlink" title="二. wujie"></a>二. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/Tencent/wujie" >wujie</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></h3>
+      <p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303201438420.webp"  alt="img">
+      </p>
+
+        <h4 id="基座应用-1"   >
+          <a href="#基座应用-1" class="heading-link"><i class="fas fa-link"></i></a><a href="#基座应用-1" class="headerlink" title="基座应用"></a>基座应用</h4>
+      <ol>
+<li>改造入口文件，注入无界</li>
+</ol>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">WujieVue</span> <span class="keyword">from</span> <span class="string">&#x27;wujie-vue2&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; setupApp, preloadApp, bus &#125; = <span class="title class_">WujieVue</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">WujieVue</span>)</span><br><span class="line"></span><br><span class="line"><span class="title function_">preloadApp</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;vue2&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<ol start="2">
+<li>新建无界页面，路由跳这里</li>
+</ol>
+<figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">WujieVue</span></span></span><br><span class="line"><span class="tag">    <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-bind</span>=<span class="string">&quot;options&quot;</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;/<span class="name">WujieVue</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 推荐抽离到公共js中或单独一个js</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">const</span> lifecycles = &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">beforeLoad</span>: <span class="function">(<span class="params">appWindow</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;appWindow.__WUJIE.id&#125;</span> beforeLoad 生命周期`</span>),</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">beforeMount</span>: <span class="function">(<span class="params">appWindow</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;appWindow.__WUJIE.id&#125;</span> beforeMount 生命周期`</span>),</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">afterMount</span>: <span class="function">(<span class="params">appWindow</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;appWindow.__WUJIE.id&#125;</span> afterMount 生命周期`</span>),</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">beforeUnmount</span>: <span class="function">(<span class="params">appWindow</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;appWindow.__WUJIE.id&#125;</span> beforeUnmount 生命周期`</span>),</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">afterUnmount</span>: <span class="function">(<span class="params">appWindow</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;appWindow.__WUJIE.id&#125;</span> afterUnmount 生命周期`</span>),</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">activated</span>: <span class="function">(<span class="params">appWindow</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;appWindow.__WUJIE.id&#125;</span> activated 生命周期`</span>),</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">deactivated</span>: <span class="function">(<span class="params">appWindow</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;appWindow.__WUJIE.id&#125;</span> deactivated 生命周期`</span>),</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">loadError</span>: <span class="function">(<span class="params">url, e</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;url&#125;</span> 加载失败`</span>, e),</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;wujie&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  data () &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">options</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: <span class="string">&#x27;vue2&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">url</span>: <span class="string">&#x27;//localhost:9001/#/&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">exec</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">sync</span>: <span class="literal">true</span>, <span class="comment">// 路由同步</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">props</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">params</span>: <span class="number">1</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">methods</span>: <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">123</span>)</span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;, <span class="comment">// 传参给子路由</span></span></span><br><span class="line"><span class="language-javascript">        ...lifecycles <span class="comment">// 生命周期</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">  mounted () &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 根据基座应用路由分析跳转到子应用对应页面</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> routerStr = location.<span class="property">hash</span>.<span class="title function_">replace</span>(<span class="string">&#x27;#/wujie/&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">this</span>.<span class="property">options</span>.<span class="property">url</span> += routerStr</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="子应用-1"   >
+          <a href="#子应用-1" class="heading-link"><i class="fas fa-link"></i></a><a href="#子应用-1" class="headerlink" title="子应用"></a>子应用</h4>
+      <ol>
+<li>改造入口文件</li>
+</ol>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 子路由接收方式</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">$wujie</span>?.<span class="property">props</span> <span class="comment">// &#123; params: 1, methods: function &#125;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">$wujie</span>?.<span class="property">props</span>.<span class="title function_">methods</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生命周期改造</span></span><br><span class="line"><span class="keyword">if</span> (<span class="variable language_">window</span>.<span class="property">__POWERED_BY_WUJIE__</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> instance;</span><br><span class="line">  <span class="variable language_">window</span>.<span class="property">__WUJIE_MOUNT</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    instance = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">      router,</span><br><span class="line">      store,</span><br><span class="line">      <span class="attr">render</span>: <span class="function">(<span class="params">h</span>) =&gt;</span> <span class="title function_">h</span>(<span class="title class_">App</span>)</span><br><span class="line">    &#125;).$mount(<span class="string">&quot;#app&quot;</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="variable language_">window</span>.<span class="property">__WUJIE_UNMOUNT</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    instance.$destroy();</span><br><span class="line">  &#125;;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">    router,</span><br><span class="line">    store,</span><br><span class="line">    <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> <span class="title function_">h</span>(<span class="title class_">App</span>)</span><br><span class="line">  &#125;).$mount(<span class="string">&#x27;#app&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+
+
+<p>优点:</p>
+<ol>
+<li>改造成本低，有基于vue的<code>wujie-vue</code>和react的<code> wujie-react</code>封装，开箱即用</li>
+<li>子应用加载和普通 vue 组件加载并无二致，所有配置都收敛到组件的属性上。</li>
+<li><code>webcomponent</code> + <code>shadowdom</code>、js-iframe原生沙箱</li>
+<li>支持<code>plugin</code></li>
+<li>子应用保活</li>
+<li>更方便的全局组件挂载</li>
+<li>浏览器降级处理</li>
+</ol>
+<p>缺点:</p>
+<ol>
+<li>社区不如qiankun和micro-app活跃</li>
+</ol>
+
+        <h3 id="三、micro-app"   >
+          <a href="#三、micro-app" class="heading-link"><i class="fas fa-link"></i></a><a href="#三、micro-app" class="headerlink" title="三、micro-app"></a>三、<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/micro-zoe/micro-app" >micro-app</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></h3>
+      <p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303171505687.png"  alt="image">
+      </p>
+
+        <h4 id="基座应用-2"   >
+          <a href="#基座应用-2" class="heading-link"><i class="fas fa-link"></i></a><a href="#基座应用-2" class="headerlink" title="基座应用"></a>基座应用</h4>
+      <ol>
+<li>基座应用改造侵入性小</li>
+</ol>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装</span></span><br><span class="line"><span class="comment">// npm i @micro-zoe/micro-app --save</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> microApp <span class="keyword">from</span> <span class="string">&#x27;@micro-zoe/micro-app&#x27;</span></span><br><span class="line"></span><br><span class="line">microApp.<span class="title function_">start</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 预加载</span></span><br><span class="line">microApp.<span class="title function_">preFetch</span>([</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&#x27;myApp&#x27;</span>, <span class="attr">url</span>: <span class="string">&#x27;//localhost:9001&#x27;</span> &#125;</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子应用卸载</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;unmount&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 执行卸载相关操作</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"><span class="title class_">Vue</span>.<span class="property">config</span>.<span class="property">productionTip</span> = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  <span class="attr">render</span>: <span class="function">(<span class="params">h</span>) =&gt;</span> <span class="title function_">h</span>(<span class="title class_">App</span>),</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<ol start="2">
+<li>分配路由</li>
+</ol>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// router.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">VueRouter</span> <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">MyPage</span> <span class="keyword">from</span> <span class="string">&#x27;./my-page.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">VueRouter</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">// 👇 非严格匹配，/my-page/* 都指向 MyPage 页面</span></span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/micro/*&#x27;</span>, <span class="comment">// vue-router@4.x path的写法为：&#x27;/my-page/:page*&#x27;</span></span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;micro&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">MyPage</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> routes</span><br></pre></td></tr></table></div></figure>
+
+<ol start="3">
+<li>页面中使用，数据通信，生命周期</li>
+</ol>
+<figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- my-page.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">micro-app</span></span></span><br><span class="line"><span class="tag">    <span class="attr">name</span>=<span class="string">&#x27;myApp&#x27;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">url</span>=<span class="string">&#x27;//localhost:9001&#x27;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">baseroute</span>=<span class="string">&#x27;/micro&#x27;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:data</span>=<span class="string">&#x27;dataForChild&#x27;</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">created</span>=<span class="string">&#x27;handleLifecycle&#x27;</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">beforemount</span>=<span class="string">&#x27;handleLifecycle&#x27;</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">mounted</span>=<span class="string">&#x27;handleLifecycle&#x27;</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">unmount</span>=<span class="string">&#x27;handleLifecycle&#x27;</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">error</span>=<span class="string">&#x27;handleLifecycle&#x27;</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">datachange</span>=<span class="string">&#x27;handleDataChange&#x27;</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;/<span class="name">micro-app</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  data () &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">dataForChild</span>: &#123;<span class="attr">type</span>: <span class="string">&#x27;发送给子应用的数据&#x27;</span>&#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    handleLifecycle (e) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;触发生命周期：&#x27;</span>, e.<span class="property">type</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    handleDataChange (e) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;来自子应用的数据：&#x27;</span>, e.<span class="property">detail</span>.<span class="property">data</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h4 id="子应用-2"   >
+          <a href="#子应用-2" class="heading-link"><i class="fas fa-link"></i></a><a href="#子应用-2" class="headerlink" title="子应用"></a>子应用</h4>
+      <ol>
+<li>子应用改造</li>
+</ol>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回基座下发的data数据</span></span><br><span class="line"><span class="keyword">const</span> data = <span class="variable language_">window</span>.<span class="property">microApp</span>.<span class="title function_">getData</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(data)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发送数据给基座应用，dispatch只接受对象作为参数</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">microApp</span>.<span class="title function_">dispatch</span>(&#123;<span class="attr">type</span>: <span class="string">&#x27;子应用发送的数据&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// umd模式，性能优化，适合频繁挂载、卸载子应用</span></span><br><span class="line"><span class="keyword">let</span> app = <span class="literal">null</span></span><br><span class="line"><span class="comment">// 👇 将渲染操作放入 mount 函数 -- 必填</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">mount</span> () &#123;</span><br><span class="line">  app = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">    router,</span><br><span class="line">    store,</span><br><span class="line">    <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> <span class="title function_">h</span>(<span class="title class_">App</span>)</span><br><span class="line">  &#125;).$mount(<span class="string">&#x27;#app&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 👇 将卸载操作放入 unmount 函数 -- 必填</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">unmount</span> () &#123;</span><br><span class="line">  app.$destroy()</span><br><span class="line">  app.<span class="property">$el</span>.<span class="property">innerHTML</span> = <span class="string">&#x27;&#x27;</span></span><br><span class="line">  app = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 微前端环境下，注册mount和unmount方法</span></span><br><span class="line"><span class="keyword">if</span> (<span class="variable language_">window</span>.<span class="property">__MICRO_APP_ENVIRONMENT__</span>) &#123;</span><br><span class="line">  <span class="variable language_">window</span>[<span class="string">`micro-app-<span class="subst">$&#123;<span class="variable language_">window</span>.__MICRO_APP_NAME__&#125;</span>`</span>] = &#123; mount, unmount &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// 非微前端环境直接渲染</span></span><br><span class="line">  <span class="title function_">mount</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<ol start="2">
+<li>路由改造</li>
+</ol>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// router.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">VueRouter</span> <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> layOut <span class="keyword">from</span> <span class="string">&#x27;@/components/layOut&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="variable language_">window</span>.<span class="property">__MICRO_APP_BASE_ROUTE__</span> || <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: layOut,</span><br><span class="line">    <span class="attr">children</span>: [</span><br><span class="line">      ...</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&quot;hash&quot;</span>,</span><br><span class="line">  <span class="comment">// base: process.env.BASE_URL,</span></span><br><span class="line">  <span class="attr">base</span>: <span class="variable language_">window</span>.<span class="property">__MICRO_APP_BASE_ROUTE__</span> || <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">  routes</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<p>路由约束：</p>
+<ul>
+<li>基座是hash路由，子应用也必须是hash路由</li>
+<li>基座是history路由，子应用可以是hash或history路由</li>
+</ul>
+<p>基础路由：</p>
+<ol>
+<li><p>如果基座是history路由，子应用是hash路由，不需要设置基础路由baseroute</p>
+</li>
+<li><p>如果子应用只有一个页面，没有使用<code>react-router</code>，<code>vue-router</code>之类，也不需要设置基础路由baseroute</p>
+</li>
+<li><p><code>vue-router</code>在hash模式下无法通过base设置基础路由，需要创建一个空的路由页面，将其它路由作为它的children</p>
+</li>
+</ol>
+<p><code>Proxy</code>代理保证<code>window</code>的纯净，因<code>Proxy</code>没有更好的<code>polyfill</code>方案，所以不支持<code>Proxy</code>的浏览器(IE、低版本iOS等)无法运行micro-app</p>
+<p>优点：</p>
+<ol>
+<li>改造成本对比qiankun有所降低</li>
+<li>简单的子应用(无路由跳转等)开箱即用</li>
+<li>支持<code>plugin</code></li>
+<li><code>webcomponet</code>、js沙箱、<code>ShadowDom</code>等</li>
+<li>子应用保活</li>
+<li>文档详细、完善，官方手把手demo教学，社区相对活跃</li>
+</ol>
+<p>缺点:</p>
+<ol>
+<li>复杂子应用有改造成本，需要改造路由才可以正常使用</li>
+<li>公用组件挂载麻烦，没有原生支持</li>
+<li>低版本浏览器兼容问题(IE等不支持<code>Proxy</code>的浏览器)</li>
+</ol>
+
+        <h3 id="四-garfish"   >
+          <a href="#四-garfish" class="heading-link"><i class="fas fa-link"></i></a><a href="#四-garfish" class="headerlink" title="四. garfish"></a>四. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/web-infra-dev/garfish" >garfish</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></h3>
+      <p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303161957251.image"  alt="设计理念">
+      </p>
+
+        <h3 id="五-本地跨域解决方案"   >
+          <a href="#五-本地跨域解决方案" class="heading-link"><i class="fas fa-link"></i></a><a href="#五-本地跨域解决方案" class="headerlink" title="五. 本地跨域解决方案"></a>五. 本地跨域解决方案</h3>
+      <figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">devServer</span>: &#123;</span><br><span class="line">    <span class="attr">headers</span>: &#123;</span><br><span class="line">      <span class="string">&quot;Access-Control-Allow-Origin&quot;</span>: <span class="string">&quot;*&quot;</span>,</span><br><span class="line">      <span class="string">&quot;Access-Control-Allow-Headers&quot;</span>: <span class="string">&quot;*&quot;</span>,</span><br><span class="line">      <span class="string">&quot;Access-Control-Allow-Methods&quot;</span>: <span class="string">&quot;*&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://www.jiangyh.cn">Jarvan</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="https://www.jiangyh.cn/2022/12/25/vue/micro-frontends/">https://www.jiangyh.cn/2022/12/25/vue/micro-frontends/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/vue/">vue</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/">微前端</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/qiankun/">qiankun</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/wujie/">wujie</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/micro-app/">micro-app</a></span></div><div class="post-reward reward"><div class="reward-button">请我喝杯咖啡~</div><div class="reward-qrcode"><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221031585.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221031231.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2023/08/28/node/node-jenkins/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">通过node调用Jenkins API完成构建过程</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2022/08/15/js/%E6%89%8B%E5%86%99call%E3%80%81apply%E3%80%81bind%E4%B8%8Ethis%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/"><span class="paginator-prev__text">手写call、apply、bind与this指向问题</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="gitalk-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E5%89%8D%E7%AB%AF"><span class="toc-number">1.</span> <span class="toc-text">
+          什么是微前端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9%E5%BE%AE%E5%89%8D%E7%AB%AF"><span class="toc-number">2.</span> <span class="toc-text">
+          为什么选择微前端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-Not-Iframe"><span class="toc-number">3.</span> <span class="toc-text">
+          Why Not Iframe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E9%80%89%E6%8B%A9"><span class="toc-number">4.</span> <span class="toc-text">
+          微前端框架选择</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-qiankun"><span class="toc-number">4.1.</span> <span class="toc-text">
+          一. qiankun</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E5%BA%A7%E5%BA%94%E7%94%A8"><span class="toc-number">4.1.1.</span> <span class="toc-text">
+          基座应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E5%BA%94%E7%94%A8"><span class="toc-number">4.1.2.</span> <span class="toc-text">
+          子应用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-wujie"><span class="toc-number">4.2.</span> <span class="toc-text">
+          二. wujie</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E5%BA%A7%E5%BA%94%E7%94%A8-1"><span class="toc-number">4.2.1.</span> <span class="toc-text">
+          基座应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E5%BA%94%E7%94%A8-1"><span class="toc-number">4.2.2.</span> <span class="toc-text">
+          子应用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81micro-app"><span class="toc-number">4.3.</span> <span class="toc-text">
+          三、micro-app</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E5%BA%A7%E5%BA%94%E7%94%A8-2"><span class="toc-number">4.3.1.</span> <span class="toc-text">
+          基座应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E5%BA%94%E7%94%A8-2"><span class="toc-number">4.3.2.</span> <span class="toc-text">
+          子应用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-garfish"><span class="toc-number">4.4.</span> <span class="toc-text">
+          四. garfish</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E6%9C%AC%E5%9C%B0%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">4.5.</span> <span class="toc-text">
+          五. 本地跨域解决方案</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201454997.png" alt="avatar"></div><p class="sidebar-ov-author__text">Matrix</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://gitee.com/bestjarvan" target="_blank" rel="noopener" data-popover="Gitee" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">码</span></a><a class="sidebar-ov-social-item" href="https://github.com/BestJarvan" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/jiang-ya-hui-37" target="_blank" rel="noopener" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">知</span></a><a class="sidebar-ov-social-item" href="https://www.jianshu.com/u/60beacd06321" target="_blank" rel="noopener" data-popover="简书" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">简</span></a><a class="sidebar-ov-social-item" href="tencent://message/?uin=532547613'" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2016~2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span><a href="https://github.com/BestJarvan" rel="noopener" target="_blank">Jarvan</a></span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://fastly.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://fastly.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://fastly.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://fastly.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://fastly.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="99" zIndex="-1"></script><script src="https://fastly.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="https://fastly.jsdelivr.net/npm/pjax@latest/pjax.min.js"></script><script>window.addEventListener('DOMContentLoaded', function () {
+  var pjax = new Pjax({"selectors":["head title","#main",".pjax-reload",".header-inner"],"history":true,"scrollTo":false,"scrollRestoration":false,"cacheBust":false,"debug":false,"currentUrlFullReload":false,"timeout":0});
+  // 加载进度条的计时器
+  var loadingTimer = null;
+
+  // 重置页面 Y 方向上的滚动偏移量
+  document.addEventListener('pjax:send', function () {
+    $('.header-nav-menu').removeClass('show');
+    if (CONFIG.pjax && CONFIG.pjax.avoidBanner) {
+      $('html').velocity('scroll', {
+        duration: 500,
+        offset: $('#header').height(),
+        easing: 'easeInOutCubic'
+      });
+    }
+
+    var loadingBarWidth = 20;
+    var MAX_LOADING_WIDTH = 95;
+
+    $('.loading-bar').addClass('loading');
+    $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    clearInterval(loadingTimer);
+    loadingTimer = setInterval(function () {
+      loadingBarWidth += 3;
+      if (loadingBarWidth > MAX_LOADING_WIDTH) {
+        loadingBarWidth = MAX_LOADING_WIDTH;
+      }
+      $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    }, 500);
+  }, false);
+
+  window.addEventListener('pjax:complete', function () {
+    clearInterval(loadingTimer);
+    $('.loading-bar__progress').css('width', '100%');
+    $('.loading-bar').removeClass('loading');
+    setTimeout(function () {
+      $('.loading-bar__progress').css('width', '0');
+    }, 400);
+    $('link[rel=prefetch], script[data-pjax-rm]').each(function () {
+      $(this).remove();
+    });
+    $('script[data-pjax], #pjax-reload script').each(function () {
+      $(this).parent().append($(this).remove());
+    });
+
+    if (Stun.utils.pjaxReloadBoot) {
+      Stun.utils.pjaxReloadBoot();
+    }
+    if (Stun.utils.pjaxReloadScroll) {
+      Stun.utils.pjaxReloadScroll();
+    }
+    if (Stun.utils.pjaxReloadSidebar) {
+      Stun.utils.pjaxReloadSidebar();
+    }
+    if (true) {
+      if (Stun.utils.pjaxReloadHeader) {
+        Stun.utils.pjaxReloadHeader();
+      }
+      if (Stun.utils.pjaxReloadScrollIcon) {
+        Stun.utils.pjaxReloadScrollIcon();
+      }
+      if (Stun.utils.pjaxReloadLocalSearch) {
+        Stun.utils.pjaxReloadLocalSearch();
+      }
+    }
+  }, false);
+}, false);</script><div id="pjax-reload"><script src="https://fastly.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script></div><script src="https://fastly.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js" data-pjax=""></script><script src="https://fastly.jsdelivr.net/npm/js-md5@latest/src/md5.min.js" data-pjax=""></script><script data-pjax="">function loadGitalk () {
+  if (!document.getElementById('gitalk-container')) {
+    return;
+  }
+
+  var gitalk = new Gitalk({
+    id: md5(window.location.pathname.slice(1)),
+    clientID: '90a70ca67fe841a80b16',
+    clientSecret: 'fc0d2c7de421e284ceb2b8801c133660c8e99dd3',
+    repo: 'bestjarvan.github.io',
+    owner: 'BestJarvan',
+    admin: ['BestJarvan'],
+    distractionFreeMode: 'false',
+    language: 'zh-CN'
+  });
+  gitalk.render('gitalk-container');
+}
+
+if (true) {
+  loadGitalk();
+} else {
+  window.addEventListener('DOMContentLoaded', loadGitalk, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script><!-- hexo injector body_end start --><script>
+// Check that service workers are supported
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/dsr50_2101.model.json"},"display":{"position":"right","width":185,"height":375,"hOffset":160},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body></html>

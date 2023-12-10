@@ -1,0 +1,549 @@
+<!DOCTYPE html><html lang="zh-CN"><head><link rel="apple-touch-icon" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="180x180" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="152x152" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="120x120" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="76x76" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicon.png"><link rel="apple-touch-icon-precomposed" href="/favicon.png"><link rel="shortcut icon" href="/favicon.png"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="theme-color" content="#54bcff"><link rel="manifest" href="/manifest.json?v=2.6.2"><link rel="icon" href="/favicon1.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/favicon2.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="google-site-verification" content="ooqktqoO7JqLW09Wo87-gFgWun7T-VE055I9m2IsoXM"><meta name="msvalidate.01" content="E990DB0CBECF200DD90F7EC1F2242CA6"><meta name="baidu-site-verification" content="codeva-IHIk9G7I2J"><meta name="description" content="本次改装按照Foundries大佬的教程搞得，附带一些个人心得                     准备的工具和材料        贴片式Type C 16Pin 母口 热风枪(没有可以用打磨笔+电烙铁慢慢搞) 电烙铁，焊锡，助焊剂 六角螺丝刀(T6用于拆主板螺丝，外壳螺丝需要专用的防盗螺丝刀拆) 30AWG跳线 打磨笔(有更好，没也行) 镊子 5.1k ohm电阻*2(触发PD快充需要，最好">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xbox One手柄改TypeC尾插">
+<meta property="og:url" content="https://www.jiangyh.cn/2023/09/20/notes/xbox-one/index.html">
+<meta property="og:site_name" content="Jiangyh&#39;s Blog">
+<meta property="og:description" content="本次改装按照Foundries大佬的教程搞得，附带一些个人心得                     准备的工具和材料        贴片式Type C 16Pin 母口 热风枪(没有可以用打磨笔+电烙铁慢慢搞) 电烙铁，焊锡，助焊剂 六角螺丝刀(T6用于拆主板螺丝，外壳螺丝需要专用的防盗螺丝刀拆) 30AWG跳线 打磨笔(有更好，没也行) 镊子 5.1k ohm电阻*2(触发PD快充需要，最好">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201150656.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201411213.jpeg">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201416284.jpeg">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201417443.jpeg">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201418882.JPG">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201418762.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201418730.jpeg">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201420331.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201421380.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201422315.jpeg">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201424204.jpg">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201422616.jpg">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201423308.jpeg">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201423403.jpeg">
+<meta property="article:published_time" content="2023-09-20T04:10:00.000Z">
+<meta property="article:modified_time" content="2023-10-16T11:15:25.651Z">
+<meta property="article:author" content="Jarvan">
+<meta property="article:tag" content="xbox">
+<meta property="article:tag" content="DIY">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201150656.png"><title>Xbox One手柄改TypeC尾插 | Jiangyh's Blog</title><link ref="canonical" href="https://www.jiangyh.cn/2023/09/20/notes/xbox-one/"><link rel="dns-prefetch" href="https://fastly.jsdelivr.net"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  author: 'Jarvan',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":false,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"carbon","highlight":"light","wordWrap":false},
+  reward: true,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: true,
+  pjax: {"avoidBanner":false},
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><!-- hexo injector head_end start --><link rel="manifest" href="/manifest.json" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner header-inner--height header-inner--bgcolor"><nav class="header-nav header-nav--sticky"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-book"></i></span><span class="header-nav-menu-item__text">文章</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/archives/"><span class="header-nav-submenu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-submenu-item__text">归档</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/categories/"><span class="header-nav-submenu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-submenu-item__text">分类</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/tags/"><span class="header-nav-submenu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-submenu-item__text">标签</span></a></div></div></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/about/"><span class="header-nav-menu-item__icon"><i class="fas fa-fingerprint"></i></span><span class="header-nav-menu-item__text">关于我</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-cannabis"></i></span><span class="header-nav-menu-item__text">其他</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/friend/"><span class="header-nav-submenu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-submenu-item__text">友链</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Xbox One手柄改TypeC尾插</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-09-20</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-10-16</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">1k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">5分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body"><p>本次改装按照<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://space.bilibili.com/57800164" >Foundries</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>大佬的教程搞得，附带一些个人心得</p>
+
+        <h3 id="准备的工具和材料"   >
+          <a href="#准备的工具和材料" class="heading-link"><i class="fas fa-link"></i></a><a href="#准备的工具和材料" class="headerlink" title="准备的工具和材料"></a>准备的工具和材料</h3>
+      <ul>
+<li>贴片式Type C 16Pin 母口</li>
+<li>热风枪(没有可以用打磨笔+电烙铁慢慢搞)</li>
+<li>电烙铁，焊锡，助焊剂</li>
+<li>六角螺丝刀(T6用于拆主板螺丝，外壳螺丝需要专用的防盗螺丝刀拆)</li>
+<li>30AWG跳线</li>
+<li>打磨笔(有更好，没也行)</li>
+<li>镊子</li>
+<li>5.1k ohm电阻*2(触发PD快充需要，最好准备0805，0603各一颗)</li>
+<li>0.1mm漆包线</li>
+<li>M1<em>2</em>1.5螺丝两颗(可选，主要是固定尾插用)</li>
+<li>AB树脂结构胶(可选)</li>
+<li>光固化绿油和固化灯</li>
+<li>聚酰亚胺胶带</li>
+<li>万用表</li>
+</ul>
+<span id="more"></span>
+
+
+<p>准备好工具后开搞，最难的第一步，type c母座改造</p>
+
+        <h3 id="一、改造typec母座"   >
+          <a href="#一、改造typec母座" class="heading-link"><i class="fas fa-link"></i></a><a href="#一、改造typec母座" class="headerlink" title="一、改造typec母座"></a>一、改造typec母座</h3>
+      <p>按照<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv22153887/?spm_id_from=333.999.collection.opus.click" >Xbox手柄改Type C接口</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>焊接，难点在于电阻的焊接，太小了，没放大镜很费眼</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201150656.png"  alt="拔除A4B9，B8，A8引脚">
+      <br>拔除A4B9，B8，A8引脚</p>
+<p>这几个引脚最好拔除，方便为后续焊接提供空间</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201411213.jpeg"  alt="0805和0603电阻，阻值5.1k">
+      <br>0805和0603电阻，阻值5.1k</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201416284.jpeg"  alt="拔除引脚后用聚酰亚胺胶带隔热">
+      <br>拔除引脚后用聚酰亚胺胶带隔热</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201417443.jpeg"  alt="IMG_6485">
+      </p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201418882.JPG"  alt="IMG_6486">
+      </p>
+<p>改造后的16pin typec母座</p>
+<p>焊接完成后可以用『安全充电多功能检测仪』测一下充电电压有没有5v，没有检测仪的话可以用万用表测一下有没有引脚短接，啥都没就肉眼看下确保焊锡没有短接到其他引脚</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201418762.png"  alt="222">
+      </p>
+<p>测试输入电压5v，成功触发快充</p>
+<p>没问题后焊接跳线，为后续焊接pcb做准备</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201418730.jpeg"  alt="IMG_6487">
+      </p>
+<p>千万别连锡短接，做好绝缘</p>
+
+        <h3 id="二、PCB改造"   >
+          <a href="#二、PCB改造" class="heading-link"><i class="fas fa-link"></i></a><a href="#二、PCB改造" class="headerlink" title="二、PCB改造"></a>二、PCB改造</h3>
+      <p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201420331.png"  alt="WX20230920-141950@2x">
+      </p>
+<p>处理旧的尾插，此处一定要处理平整，这样才美观</p>
+<ul>
+<li>把旧的尾插拔除，这里我没有热风枪，选择了蛮力，直接把焊盘拔掉了，不过当时脑子抽，没有打磨平整，就开始后续操作了，导致这里不平整，typec尾插翘起来一小块(不影响使用，就是不美观了)</li>
+<li>M1的螺丝拧入原尾插的插槽内，这里M1的螺丝不要选择铝制，不吃锡，最好拧进去前找一颗实验下吃不吃锡，不吃的话尽早处理下这两个螺丝，比如洁厕灵涂一下侵蚀表面，不然拧上去发现不吃锡就很尴尬了</li>
+</ul>
+
+        <h3 id="三、飞线焊接"   >
+          <a href="#三、飞线焊接" class="heading-link"><i class="fas fa-link"></i></a><a href="#三、飞线焊接" class="headerlink" title="三、飞线焊接"></a>三、飞线焊接</h3>
+      <p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201421380.png"  alt="WX20230920-142057@2x">
+      </p>
+<blockquote>
+<p>D-和D+线焊接在1号位时，能获得最好的ESD保护，但比较难焊接。2号位是一个很大的测试点，方便焊接（图中被我测试时，搞掉了）。3号点是最后的选择。</p>
+<p>将A7,B7飞线到D-位，A6，B6飞线到D+位。</p>
+<p>最佳的飞线方式是B7焊接一根短线到A7，B6焊接一根短线到A6。A6, A7再飞线到PCB。这需要熟练的焊接能力。</p>
+<p>差一点的方式是A6, A7飞线到PCB，然后B6, B7通过飞线中途接入A6，A7的飞线上。</p>
+<p>最差的便是4根线直接飞线到PCB上。</p>
+<p>布线过程中，尽量保证等长，贴近！！！</p>
+</blockquote>
+<p>这里我选择焊接到2号位，2号位置焊接空间相对大一些</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201422315.jpeg"  alt="IMG_6489 11.25.51">
+      </p>
+<p>焊接后涂一层绿油固定<br>这里绿油涂多了，后面用刷子刷薄，太厚不利于光照固化，可以看到焊2号位操作空间有多大，这么一大坨焊锡，手残的我也能焊上</p>
+
+        <h3 id="四、打磨外壳"   >
+          <a href="#四、打磨外壳" class="heading-link"><i class="fas fa-link"></i></a><a href="#四、打磨外壳" class="headerlink" title="四、打磨外壳"></a>四、打磨外壳</h3>
+      <p>先上大佬的完美作品</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201424204.jpg"  alt="33">
+      </p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201422616.jpg"  alt="44">
+      </p>
+<p>大佬作品</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201423308.jpeg"  alt="IMG_6506">
+      </p>
+<p>我的丑照</p>
+<p>此处就是第二步pcb处理时候，旧的焊盘没有处理平整，导致typec尾插不平，后面翘起一点，没办法重新处理，只能强行剪开外壳，让c口没有能正常使用</p>
+<p>这里我固定尾插第一次用了焊锡，拔插几次后焊锡断开，后面用了AB树脂结构胶固定，固化时间大概5分钟初始固化到24小时固化完全，这次很稳，拔插稳定</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201423403.jpeg"  alt="IMG_6507">
+      </p>
+<p>QC2.0<br>这里可以看到，装机完成后插入充电可以触发QC2.0快充协议</p>
+<p>至此，改造完成</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://www.jiangyh.cn">Jarvan</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="https://www.jiangyh.cn/2023/09/20/notes/xbox-one/">https://www.jiangyh.cn/2023/09/20/notes/xbox-one/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/xbox/">xbox</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/DIY/">DIY</a></span></div><div class="post-reward reward"><div class="reward-button">请我喝杯咖啡~</div><div class="reward-qrcode"><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221031585.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221031231.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2023/12/10/js/sse/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">Serve-Send-Events(SSE)项目中应用</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2023/09/19/node/puppeteer/"><span class="paginator-prev__text">解决puppeteer依赖chromium内核下载失败问题</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="gitalk-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E7%9A%84%E5%B7%A5%E5%85%B7%E5%92%8C%E6%9D%90%E6%96%99"><span class="toc-number">1.</span> <span class="toc-text">
+          准备的工具和材料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%94%B9%E9%80%A0typec%E6%AF%8D%E5%BA%A7"><span class="toc-number">2.</span> <span class="toc-text">
+          一、改造typec母座</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81PCB%E6%94%B9%E9%80%A0"><span class="toc-number">3.</span> <span class="toc-text">
+          二、PCB改造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%A3%9E%E7%BA%BF%E7%84%8A%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">
+          三、飞线焊接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%89%93%E7%A3%A8%E5%A4%96%E5%A3%B3"><span class="toc-number">5.</span> <span class="toc-text">
+          四、打磨外壳</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201454997.png" alt="avatar"></div><p class="sidebar-ov-author__text">Matrix</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://gitee.com/bestjarvan" target="_blank" rel="noopener" data-popover="Gitee" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">码</span></a><a class="sidebar-ov-social-item" href="https://github.com/BestJarvan" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/jiang-ya-hui-37" target="_blank" rel="noopener" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">知</span></a><a class="sidebar-ov-social-item" href="https://www.jianshu.com/u/60beacd06321" target="_blank" rel="noopener" data-popover="简书" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">简</span></a><a class="sidebar-ov-social-item" href="tencent://message/?uin=532547613'" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2016~2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span><a href="https://github.com/BestJarvan" rel="noopener" target="_blank">Jarvan</a></span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://fastly.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://fastly.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://fastly.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://fastly.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://fastly.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="99" zIndex="-1"></script><script src="https://fastly.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="https://fastly.jsdelivr.net/npm/pjax@latest/pjax.min.js"></script><script>window.addEventListener('DOMContentLoaded', function () {
+  var pjax = new Pjax({"selectors":["head title","#main",".pjax-reload",".header-inner"],"history":true,"scrollTo":false,"scrollRestoration":false,"cacheBust":false,"debug":false,"currentUrlFullReload":false,"timeout":0});
+  // 加载进度条的计时器
+  var loadingTimer = null;
+
+  // 重置页面 Y 方向上的滚动偏移量
+  document.addEventListener('pjax:send', function () {
+    $('.header-nav-menu').removeClass('show');
+    if (CONFIG.pjax && CONFIG.pjax.avoidBanner) {
+      $('html').velocity('scroll', {
+        duration: 500,
+        offset: $('#header').height(),
+        easing: 'easeInOutCubic'
+      });
+    }
+
+    var loadingBarWidth = 20;
+    var MAX_LOADING_WIDTH = 95;
+
+    $('.loading-bar').addClass('loading');
+    $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    clearInterval(loadingTimer);
+    loadingTimer = setInterval(function () {
+      loadingBarWidth += 3;
+      if (loadingBarWidth > MAX_LOADING_WIDTH) {
+        loadingBarWidth = MAX_LOADING_WIDTH;
+      }
+      $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    }, 500);
+  }, false);
+
+  window.addEventListener('pjax:complete', function () {
+    clearInterval(loadingTimer);
+    $('.loading-bar__progress').css('width', '100%');
+    $('.loading-bar').removeClass('loading');
+    setTimeout(function () {
+      $('.loading-bar__progress').css('width', '0');
+    }, 400);
+    $('link[rel=prefetch], script[data-pjax-rm]').each(function () {
+      $(this).remove();
+    });
+    $('script[data-pjax], #pjax-reload script').each(function () {
+      $(this).parent().append($(this).remove());
+    });
+
+    if (Stun.utils.pjaxReloadBoot) {
+      Stun.utils.pjaxReloadBoot();
+    }
+    if (Stun.utils.pjaxReloadScroll) {
+      Stun.utils.pjaxReloadScroll();
+    }
+    if (Stun.utils.pjaxReloadSidebar) {
+      Stun.utils.pjaxReloadSidebar();
+    }
+    if (true) {
+      if (Stun.utils.pjaxReloadHeader) {
+        Stun.utils.pjaxReloadHeader();
+      }
+      if (Stun.utils.pjaxReloadScrollIcon) {
+        Stun.utils.pjaxReloadScrollIcon();
+      }
+      if (Stun.utils.pjaxReloadLocalSearch) {
+        Stun.utils.pjaxReloadLocalSearch();
+      }
+    }
+  }, false);
+}, false);</script><div id="pjax-reload"><script src="https://fastly.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script></div><script src="https://fastly.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js" data-pjax=""></script><script src="https://fastly.jsdelivr.net/npm/js-md5@latest/src/md5.min.js" data-pjax=""></script><script data-pjax="">function loadGitalk () {
+  if (!document.getElementById('gitalk-container')) {
+    return;
+  }
+
+  var gitalk = new Gitalk({
+    id: md5(window.location.pathname.slice(1)),
+    clientID: '90a70ca67fe841a80b16',
+    clientSecret: 'fc0d2c7de421e284ceb2b8801c133660c8e99dd3',
+    repo: 'bestjarvan.github.io',
+    owner: 'BestJarvan',
+    admin: ['BestJarvan'],
+    distractionFreeMode: 'false',
+    language: 'zh-CN'
+  });
+  gitalk.render('gitalk-container');
+}
+
+if (true) {
+  loadGitalk();
+} else {
+  window.addEventListener('DOMContentLoaded', loadGitalk, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script><!-- hexo injector body_end start --><script>
+// Check that service workers are supported
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/dsr50_2101.model.json"},"display":{"position":"right","width":185,"height":375,"hOffset":160},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body></html>

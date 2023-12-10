@@ -1,0 +1,525 @@
+<!DOCTYPE html><html lang="zh-CN"><head><link rel="apple-touch-icon" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="180x180" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="152x152" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="120x120" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="76x76" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicon.png"><link rel="apple-touch-icon-precomposed" href="/favicon.png"><link rel="shortcut icon" href="/favicon.png"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="theme-color" content="#54bcff"><link rel="manifest" href="/manifest.json?v=2.6.2"><link rel="icon" href="/favicon1.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/favicon2.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="google-site-verification" content="ooqktqoO7JqLW09Wo87-gFgWun7T-VE055I9m2IsoXM"><meta name="msvalidate.01" content="E990DB0CBECF200DD90F7EC1F2242CA6"><meta name="baidu-site-verification" content="codeva-IHIk9G7I2J"><meta name="description" content="一、关于前端数据存储常用的几个方案        Cookie Web Storage IndexDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端数据存储之IndexedDB">
+<meta property="og:url" content="https://www.jiangyh.cn/2020/08/06/js/indexedDB/index.html">
+<meta property="og:site_name" content="Jiangyh&#39;s Blog">
+<meta property="og:description" content="一、关于前端数据存储常用的几个方案        Cookie Web Storage IndexDB">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/MeYVOLxGWMYAOpz2/img/66cc1241-764f-49f5-ba5c-f03599eb3a3e.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221109134.png">
+<meta property="article:published_time" content="2020-08-06T03:14:00.000Z">
+<meta property="article:modified_time" content="2020-08-06T03:14:00.000Z">
+<meta property="article:author" content="Jarvan">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="cookie">
+<meta property="article:tag" content="indexedDB">
+<meta property="article:tag" content="localStorage">
+<meta property="article:tag" content="sessionStorage">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/MeYVOLxGWMYAOpz2/img/66cc1241-764f-49f5-ba5c-f03599eb3a3e.png"><title>前端数据存储之IndexedDB | Jiangyh's Blog</title><link ref="canonical" href="https://www.jiangyh.cn/2020/08/06/js/indexedDB/"><link rel="dns-prefetch" href="https://fastly.jsdelivr.net"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  author: 'Jarvan',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":false,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"carbon","highlight":"light","wordWrap":false},
+  reward: true,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: true,
+  pjax: {"avoidBanner":false},
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><!-- hexo injector head_end start --><link rel="manifest" href="/manifest.json" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner header-inner--height header-inner--bgcolor"><nav class="header-nav header-nav--sticky"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-book"></i></span><span class="header-nav-menu-item__text">文章</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/archives/"><span class="header-nav-submenu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-submenu-item__text">归档</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/categories/"><span class="header-nav-submenu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-submenu-item__text">分类</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/tags/"><span class="header-nav-submenu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-submenu-item__text">标签</span></a></div></div></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/about/"><span class="header-nav-menu-item__icon"><i class="fas fa-fingerprint"></i></span><span class="header-nav-menu-item__text">关于我</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-cannabis"></i></span><span class="header-nav-menu-item__text">其他</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/friend/"><span class="header-nav-submenu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-submenu-item__text">友链</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">前端数据存储之IndexedDB</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-08-06</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-08-06</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">2.1k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">16分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body">
+        <h5 id="一、关于前端数据存储常用的几个方案"   >
+          <a href="#一、关于前端数据存储常用的几个方案" class="heading-link"><i class="fas fa-link"></i></a><a href="#一、关于前端数据存储常用的几个方案" class="headerlink" title="一、关于前端数据存储常用的几个方案"></a>一、关于前端数据存储常用的几个方案</h5>
+      <ol>
+<li>Cookie</li>
+<li>Web Storage</li>
+<li>IndexDB<span id="more"></span>
+
+        <h5 id="二、cookie和storage差异对比"   >
+          <a href="#二、cookie和storage差异对比" class="heading-link"><i class="fas fa-link"></i></a><a href="#二、cookie和storage差异对比" class="headerlink" title="二、cookie和storage差异对比"></a>二、cookie和storage差异对比</h5>
+      </li>
+</ol>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th align="center">特点</th>
+<th align="center">Cookie</th>
+<th align="center">Web Storage</th>
+<th align="center">IndexDB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">生命周期</td>
+<td align="center">可设置过期时间或跟随当前页面</td>
+<td align="center">localStorage: 永久有效sessionStorage: 跟随当前页面</td>
+<td align="center">永久有效，除非手动清除，同localStorage</td>
+</tr>
+<tr>
+<td align="center">数据大小</td>
+<td align="center">4k</td>
+<td align="center">一般5m</td>
+<td align="center">取决于硬盘的大小的50%</td>
+</tr>
+<tr>
+<td align="center">局限</td>
+<td align="center">每次请求都会携带到header中，使请求数据无意义增大</td>
+<td align="center">对于Object类型数据必须json序列化才能储存，且是同步操作，大数据操作会阻塞进程</td>
+<td align="center">若磁盘满，最近最少使用的源将首先被删除，然后是下一个，直到浏览器不再超过限制。</td>
+</tr>
+</tbody></table></div>
+
+        <h5 id="三、IndexDB特点"   >
+          <a href="#三、IndexDB特点" class="heading-link"><i class="fas fa-link"></i></a><a href="#三、IndexDB特点" class="headerlink" title="三、IndexDB特点"></a>三、IndexDB特点</h5>
+      <ol>
+<li><strong>键值对储存。</strong>IndexedDB 内部采用对象仓库（object store）存放数据。所有类型的数据都可以直接存入，包括 JavaScript 对象。对象仓库中，数据以”键值对”的形式保存，每一个数据记录都有对应的主键，主键是独一无二的，不能有重复，否则会抛出一个错误。</li>
+<li><strong>异步。</strong> IndexedDB 操作时不会锁死浏览器，用户依然可以进行其他操作，这与 LocalStorage 形成对比，后者的操作是同步的。异步设计是为了防止大量数据的读写，锁死用户操作。</li>
+<li><strong>支持事务。</strong> IndexedDB 支持事务（transaction），这意味着一系列操作步骤之中，只要有一步失败，整个事务就都取消，数据库回滚到事务发生之前的状态，不存在只改写一部分数据的情况，操作数据更安全。</li>
+<li><strong>支持索引。</strong> IndexedDB 数据表可以建立索引，索引的意义在于，可以让你搜索任意字段，也就是说从任意字段拿到数据记录。如果不建立索引，默认只能搜索主键（即从主键取值）。</li>
+<li><strong>同源限制。</strong> IndexedDB 受到同源限制，每一个数据库对应创建它的域名。网页只能访问自身域名下的数据库，而不能访问跨域的数据库。</li>
+<li><strong>储存空间大。</strong> IndexedDB 的储存空间比 LocalStorage 大得多，一般来说不少于 250MB，大小一般是硬盘大小的50%，超过就会触发源回收。</li>
+<li><strong>支持二进制储存。</strong> IndexedDB 不仅可以储存字符串，还可以储存二进制数据（ArrayBuffer 对象和 Blob 对象）。</li>
+</ol>
+
+        <h5 id="四、IndexDB用法"   >
+          <a href="#四、IndexDB用法" class="heading-link"><i class="fas fa-link"></i></a><a href="#四、IndexDB用法" class="headerlink" title="四、IndexDB用法"></a>四、IndexDB用法</h5>
+      <p>IndexDB已经被封装抽离成一个个的API，所以使用时可以直接调用浏览器API。</p>
+<p>新建数据库，open方法接收两个参数 一个是数据库名字 第二个是版本号，整数，默认为1或当前版本</p>
+<p>若没有对应库名的数据库则会进行新建数据库操作</p>
+<p>open方法返回一个IDBRequest对象，对象通过<strong>error、success、upgradeneeded</strong>，处理打开数据库的操作结果</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> request = <span class="variable language_">window</span>.<span class="property">indexedDB</span>.<span class="title function_">open</span>(databaseName, version)</span><br><span class="line"><span class="keyword">let</span> db</span><br><span class="line"></span><br><span class="line">request.<span class="property">onerror</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;数据库打开报错&#x27;</span>, event)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">request.<span class="property">onsuccess</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  db = request.<span class="property">result</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;数据库打开成功&#x27;</span>, db)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">request.<span class="property">onupgradeneeded</span> = <span class="function">(<span class="params">&#123; target: &#123; result &#125; &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// changing objectStore data is done here, as opposed to a transaction enum:</span></span><br><span class="line">  db = result</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;数据库升级&#x27;</span>, db)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/MeYVOLxGWMYAOpz2/img/66cc1241-764f-49f5-ba5c-f03599eb3a3e.png"  alt="1">
+      </p>
+<p>现在，我们新建了一个名字叫做demoBase的数据库，那么光有数据库是不够的，我们还需要新建对象仓库(object store)类似于MySQL的表</p>
+<blockquote>
+<p>要创建一个对象仓库必须在upgradeneeded事件中，而upgradeneeded事件只会在版本号更新的时候触发，这是因为IndexedDB API中不允许数据库中的数据仓库在同一版本中发送变化</p>
+</blockquote>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// changing objectStore data is done here, as opposed to a transaction enum:</span></span><br><span class="line">request.<span class="property">onupgradeneeded</span> = <span class="keyword">function</span> (<span class="params">&#123; target: &#123; result &#125; &#125;</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;数据库升级&#x27;</span>, result)</span><br><span class="line">  db = result</span><br><span class="line">  <span class="keyword">let</span> objStore</span><br><span class="line">  <span class="comment">// Node.contains()返回的是一个boolean，来表示传入的节点是否为该节点的后代节点。</span></span><br><span class="line">  <span class="comment">// 判断是否有person对象仓库 若没有则新建一个对象仓库(即新建表)</span></span><br><span class="line">  <span class="keyword">if</span> (!db.<span class="property">objectStoreNames</span>.<span class="title function_">contains</span>(<span class="string">&#x27;person&#x27;</span>)) &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 新建person表 主键(key)是默认建立的索引，比如下面我们使用id做为主键</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name: string</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> optionalParameters?: IDBIndexParameters</span></span><br><span class="line"><span class="comment">     * keyPath</span></span><br><span class="line"><span class="comment">     * autoIncrement</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">     objStore = db.<span class="title function_">createObjectStore</span>(<span class="string">&#x27;person&#x27;</span>, &#123; <span class="attr">keyPath</span>: <span class="string">&#x27;id&#x27;</span> &#125;)</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建索引 用于快速检索</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name: string</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> keyPath: string | string[]</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> optionalParameters?: IDBIndexParameters</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    objStore.<span class="title function_">createIndex</span>(<span class="string">&#x27;nameIndex&#x27;</span>, <span class="string">&#x27;name&#x27;</span>, &#123; <span class="attr">unique</span>: <span class="literal">false</span> &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>现在，数据库和表我们都有了，那么下一步就是操作表，也就是增、删、改、查数据，我们需要通过事务来操作</p>
+<blockquote>
+<p>一个数据库事务通常包含了一个序列的对数据库的读/写操作。它的存在包含了两个以上目的<br>1、为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍然保持一致性的方法<br>2、当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作相互干扰</p>
+</blockquote>
+<ol>
+<li><p>增</p>
+<p>新增数据，首先需要新建一个事务，新建时必须指定表格名称和操作模式（”只读”或”读写”）</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> content = db.<span class="title function_">transaction</span>([<span class="string">&#x27;person&#x27;</span>], <span class="string">&#x27;readwrite&#x27;</span>)</span><br><span class="line">  	.<span class="title function_">objectStore</span>(<span class="string">&#x27;person&#x27;</span>)</span><br><span class="line">  	.<span class="title function_">add</span>(&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>, <span class="attr">age</span>: <span class="number">24</span>, <span class="attr">email</span>: <span class="string">&#x27;zhangsan@example.com&#x27;</span> &#125;);</span><br><span class="line"></span><br><span class="line">  content.<span class="property">onsuccess</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;数据写入成功&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  content.<span class="property">onerror</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;数据写入失败&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>此时一条数据已经新增成功我们可以打开Chrome DevTools，关于数据存储可以打开Application再Storage中找到IndexDB</p>
+</li>
+<li><p>删</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">remove</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> request = db.<span class="title function_">transaction</span>([<span class="string">&#x27;person&#x27;</span>], <span class="string">&#x27;readwrite&#x27;</span>)</span><br><span class="line">    .<span class="title function_">objectStore</span>(<span class="string">&#x27;person&#x27;</span>)</span><br><span class="line">    .<span class="title function_">delete</span>(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">  request.<span class="property">onsuccess</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;数据删除成功&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  request.<span class="property">onerror</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;数据删除失败&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure></li>
+<li><p>改</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">update</span> () &#123;</span><br><span class="line">  <span class="keyword">const</span> request = db.<span class="title function_">transaction</span>([<span class="string">&#x27;person&#x27;</span>], <span class="string">&#x27;readwrite&#x27;</span>)</span><br><span class="line">    .<span class="title function_">objectStore</span>(<span class="string">&#x27;person&#x27;</span>)</span><br><span class="line">    .<span class="title function_">put</span>(&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&#x27;李四&#x27;</span>, <span class="attr">age</span>: <span class="number">35</span>, <span class="attr">email</span>: <span class="string">&#x27;lisi@example.com&#x27;</span> &#125;)</span><br><span class="line"></span><br><span class="line">  request.<span class="property">onsuccess</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;数据更新成功&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  request.<span class="property">onerror</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;数据更新失败&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure></li>
+<li><p>查</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">search</span> () &#123;</span><br><span class="line">  <span class="comment">// 新建查询事务</span></span><br><span class="line">  <span class="keyword">const</span> request = db.<span class="title function_">transaction</span>([<span class="string">&#x27;person&#x27;</span>])</span><br><span class="line">    .<span class="title function_">objectStore</span>(<span class="string">&#x27;person&#x27;</span>)</span><br><span class="line">		<span class="comment">// 查询主键是1的  </span></span><br><span class="line">    .<span class="title function_">get</span>(<span class="number">1</span>)</span><br><span class="line">  	<span class="comment">// 通过索引查</span></span><br><span class="line">  	<span class="comment">// .index(&#x27;name&#x27;)</span></span><br><span class="line">    <span class="comment">// .get(&#x27;李四&#x27;)</span></span><br><span class="line"></span><br><span class="line">  request.<span class="property">onsuccess</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (request.<span class="property">result</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data===&#x27;</span>, request.<span class="property">result</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;未获得数据记录&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  request.<span class="property">onerror</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;事务失败&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure></li>
+</ol>
+
+        <h5 id="五、简单封装使用"   >
+          <a href="#五、简单封装使用" class="heading-link"><i class="fas fa-link"></i></a><a href="#五、简单封装使用" class="headerlink" title="五、简单封装使用"></a>五、简单封装使用</h5>
+      <figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">IndexDBDemo</span> &#123;</span><br><span class="line">  db = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">name, storeOpt = &#123;&#125;, key = <span class="literal">null</span>, indexOpt = &#123;&#125;</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="variable language_">this</span>.<span class="property">db</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">init</span>(name, storeOpt, key, indexOpt)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">db</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 初始化</span></span><br><span class="line">  init (name, storeOpt = &#123;&#125;, key = <span class="literal">null</span>, indexOpt = &#123;&#125;) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;init&#x27;</span>)</span><br><span class="line">    <span class="keyword">const</span> request = indexedDB.<span class="title function_">open</span>(name)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">res, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      request.<span class="property">onsuccess</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">db</span> = request.<span class="property">result</span></span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">      request.<span class="property">onupgradeneeded</span> = <span class="keyword">function</span> (<span class="params">&#123; target: &#123; result &#125; &#125;</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">db</span> = result</span><br><span class="line">        <span class="keyword">if</span> (!<span class="variable language_">this</span>.<span class="property">db</span>.<span class="property">objectStoreNames</span>.<span class="title function_">contains</span>(name)) &#123;</span><br><span class="line">          <span class="keyword">const</span> req = <span class="variable language_">this</span>.<span class="property">db</span>.<span class="title function_">createObjectStore</span>(name, storeOpt)</span><br><span class="line">          <span class="keyword">if</span> (key) &#123;</span><br><span class="line">            req.<span class="title function_">createIndex</span>(key, key, indexOpt)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="title function_">res</span>()</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      request.<span class="property">onerror</span> = <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">reject</span>(error)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  add (name, data) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">result, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> request = <span class="variable language_">this</span>.<span class="property">db</span>.<span class="title function_">transaction</span>([name], <span class="string">&#x27;readwrite&#x27;</span>)</span><br><span class="line">        .<span class="title function_">objectStore</span>(name)</span><br><span class="line">        .<span class="title function_">add</span>(data)</span><br><span class="line"></span><br><span class="line">      request.<span class="property">onsuccess</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">result</span>(event)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      request.<span class="property">onerror</span> = <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">reject</span>(error)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">remove</span>(<span class="params">name, key</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">result, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> request = <span class="variable language_">this</span>.<span class="property">db</span>.<span class="title function_">transaction</span>([name], <span class="string">&#x27;readwrite&#x27;</span>)</span><br><span class="line">        .<span class="title function_">objectStore</span>(name)</span><br><span class="line">        .<span class="title function_">delete</span>(key)</span><br><span class="line"></span><br><span class="line">      request.<span class="property">onsuccess</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">result</span>(event)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      request.<span class="property">onerror</span> = <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">reject</span>(error)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  update (name, data) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">result, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> request = <span class="variable language_">this</span>.<span class="property">db</span>.<span class="title function_">transaction</span>([name], <span class="string">&#x27;readwrite&#x27;</span>)</span><br><span class="line">        .<span class="title function_">objectStore</span>(name)</span><br><span class="line">        .<span class="title function_">put</span>(data)</span><br><span class="line"></span><br><span class="line">      request.<span class="property">onsuccess</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">result</span>(event)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      request.<span class="property">onerror</span> = <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">reject</span>(error)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  search (name, index) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">result, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> request = <span class="variable language_">this</span>.<span class="property">db</span>.<span class="title function_">transaction</span>([name])</span><br><span class="line">        .<span class="title function_">objectStore</span>(name)</span><br><span class="line">        .<span class="title function_">get</span>(index)</span><br><span class="line"></span><br><span class="line">      request.<span class="property">onsuccess</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (request.<span class="property">result</span>) &#123;</span><br><span class="line">          <span class="title function_">result</span>(request.<span class="property">result</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;no data&#x27;</span>)</span><br><span class="line">          <span class="title function_">reject</span>()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      request.<span class="property">onerror</span> = <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;事务失败&#x27;</span>)</span><br><span class="line">        <span class="title function_">reject</span>(error)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">searchIndex</span>(<span class="params">name, key, index</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">result, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> request = <span class="variable language_">this</span>.<span class="property">db</span>.<span class="title function_">transaction</span>([name])</span><br><span class="line">        .<span class="title function_">objectStore</span>(name)</span><br><span class="line">        .<span class="title function_">index</span>(key)</span><br><span class="line">        .<span class="title function_">get</span>(index)</span><br><span class="line"></span><br><span class="line">      request.<span class="property">onsuccess</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (request.<span class="property">result</span>) &#123;</span><br><span class="line">          <span class="title function_">result</span>(request.<span class="property">result</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;no data&#x27;</span>)</span><br><span class="line">          <span class="title function_">reject</span>()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      request.<span class="property">onerror</span> = <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">reject</span>(error)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">db</span> = <span class="keyword">new</span> <span class="title class_">IndexDBDemo</span>(name, &#123; <span class="attr">keyPath</span>: <span class="string">&#x27;id&#x27;</span>, <span class="attr">autoIncrement</span>: <span class="literal">true</span> &#125;, <span class="string">&#x27;name&#x27;</span>, &#123; <span class="attr">unique</span>: <span class="literal">false</span> &#125;)</span><br><span class="line"><span class="variable language_">this</span>.<span class="property">db</span>.<span class="title function_">add</span>(name, obj).<span class="title function_">then</span>().<span class="title function_">catch</span>()</span><br><span class="line"><span class="variable language_">this</span>.<span class="property">db</span>.<span class="title function_">remove</span>(name, key).<span class="title function_">then</span>().<span class="title function_">catch</span>()</span><br><span class="line"><span class="variable language_">this</span>.<span class="property">db</span>.<span class="title function_">update</span>(name, obj).<span class="title function_">then</span>().<span class="title function_">catch</span>()</span><br><span class="line"><span class="variable language_">this</span>.<span class="property">db</span>.<span class="title function_">search</span>(name, key).<span class="title function_">then</span>().<span class="title function_">catch</span>()</span><br><span class="line"><span class="variable language_">this</span>.<span class="property">db</span>.<span class="title function_">searchIndex</span>(name, <span class="string">&#x27;索引&#x27;</span>, <span class="string">&#x27;索引值&#x27;</span>).<span class="title function_">then</span>().<span class="title function_">catch</span>()</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h5 id="六、浏览器兼容"   >
+          <a href="#六、浏览器兼容" class="heading-link"><i class="fas fa-link"></i></a><a href="#六、浏览器兼容" class="headerlink" title="六、浏览器兼容"></a>六、浏览器兼容</h5>
+      <p>更多高级用法参考<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API#Browser_compatibility" >Web API</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> </p>
+<p>功能再强大，不兼容也不行，下面是浏览器兼容图，数据来源 <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://caniuse.com/#search=IndexDB" >can i use</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221109134.png"  alt="浏览器兼容情况">
+      </p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://www.jiangyh.cn">Jarvan</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="https://www.jiangyh.cn/2020/08/06/js/indexedDB/">https://www.jiangyh.cn/2020/08/06/js/indexedDB/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/javascript/">javascript</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/cookie/">cookie</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/indexedDB/">indexedDB</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/localStorage/">localStorage</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/sessionStorage/">sessionStorage</a></span></div><div class="post-reward reward"><div class="reward-button">请我喝杯咖啡~</div><div class="reward-qrcode"><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221031585.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221031231.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2020/08/07/js/event-loop/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">回调与异步编程</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2020/04/14/npm/Typescript+verdaccio/"><span class="paginator-prev__text">Typescript+verdaccio+pm2构建私有工具包</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="gitalk-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E4%B8%AA%E6%96%B9%E6%A1%88"><span class="toc-number">1.</span> <span class="toc-text">
+          一、关于前端数据存储常用的几个方案</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8C%E3%80%81cookie%E5%92%8Cstorage%E5%B7%AE%E5%BC%82%E5%AF%B9%E6%AF%94"><span class="toc-number">2.</span> <span class="toc-text">
+          二、cookie和storage差异对比</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%89%E3%80%81IndexDB%E7%89%B9%E7%82%B9"><span class="toc-number">3.</span> <span class="toc-text">
+          三、IndexDB特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9B%9B%E3%80%81IndexDB%E7%94%A8%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">
+          四、IndexDB用法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E7%AE%80%E5%8D%95%E5%B0%81%E8%A3%85%E4%BD%BF%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">
+          五、简单封装使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9"><span class="toc-number">6.</span> <span class="toc-text">
+          六、浏览器兼容</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201454997.png" alt="avatar"></div><p class="sidebar-ov-author__text">Matrix</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://gitee.com/bestjarvan" target="_blank" rel="noopener" data-popover="Gitee" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">码</span></a><a class="sidebar-ov-social-item" href="https://github.com/BestJarvan" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/jiang-ya-hui-37" target="_blank" rel="noopener" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">知</span></a><a class="sidebar-ov-social-item" href="https://www.jianshu.com/u/60beacd06321" target="_blank" rel="noopener" data-popover="简书" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">简</span></a><a class="sidebar-ov-social-item" href="tencent://message/?uin=532547613'" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2016~2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span><a href="https://github.com/BestJarvan" rel="noopener" target="_blank">Jarvan</a></span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://fastly.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://fastly.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://fastly.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://fastly.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://fastly.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="99" zIndex="-1"></script><script src="https://fastly.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="https://fastly.jsdelivr.net/npm/pjax@latest/pjax.min.js"></script><script>window.addEventListener('DOMContentLoaded', function () {
+  var pjax = new Pjax({"selectors":["head title","#main",".pjax-reload",".header-inner"],"history":true,"scrollTo":false,"scrollRestoration":false,"cacheBust":false,"debug":false,"currentUrlFullReload":false,"timeout":0});
+  // 加载进度条的计时器
+  var loadingTimer = null;
+
+  // 重置页面 Y 方向上的滚动偏移量
+  document.addEventListener('pjax:send', function () {
+    $('.header-nav-menu').removeClass('show');
+    if (CONFIG.pjax && CONFIG.pjax.avoidBanner) {
+      $('html').velocity('scroll', {
+        duration: 500,
+        offset: $('#header').height(),
+        easing: 'easeInOutCubic'
+      });
+    }
+
+    var loadingBarWidth = 20;
+    var MAX_LOADING_WIDTH = 95;
+
+    $('.loading-bar').addClass('loading');
+    $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    clearInterval(loadingTimer);
+    loadingTimer = setInterval(function () {
+      loadingBarWidth += 3;
+      if (loadingBarWidth > MAX_LOADING_WIDTH) {
+        loadingBarWidth = MAX_LOADING_WIDTH;
+      }
+      $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    }, 500);
+  }, false);
+
+  window.addEventListener('pjax:complete', function () {
+    clearInterval(loadingTimer);
+    $('.loading-bar__progress').css('width', '100%');
+    $('.loading-bar').removeClass('loading');
+    setTimeout(function () {
+      $('.loading-bar__progress').css('width', '0');
+    }, 400);
+    $('link[rel=prefetch], script[data-pjax-rm]').each(function () {
+      $(this).remove();
+    });
+    $('script[data-pjax], #pjax-reload script').each(function () {
+      $(this).parent().append($(this).remove());
+    });
+
+    if (Stun.utils.pjaxReloadBoot) {
+      Stun.utils.pjaxReloadBoot();
+    }
+    if (Stun.utils.pjaxReloadScroll) {
+      Stun.utils.pjaxReloadScroll();
+    }
+    if (Stun.utils.pjaxReloadSidebar) {
+      Stun.utils.pjaxReloadSidebar();
+    }
+    if (true) {
+      if (Stun.utils.pjaxReloadHeader) {
+        Stun.utils.pjaxReloadHeader();
+      }
+      if (Stun.utils.pjaxReloadScrollIcon) {
+        Stun.utils.pjaxReloadScrollIcon();
+      }
+      if (Stun.utils.pjaxReloadLocalSearch) {
+        Stun.utils.pjaxReloadLocalSearch();
+      }
+    }
+  }, false);
+}, false);</script><div id="pjax-reload"><script src="https://fastly.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script></div><script src="https://fastly.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js" data-pjax=""></script><script src="https://fastly.jsdelivr.net/npm/js-md5@latest/src/md5.min.js" data-pjax=""></script><script data-pjax="">function loadGitalk () {
+  if (!document.getElementById('gitalk-container')) {
+    return;
+  }
+
+  var gitalk = new Gitalk({
+    id: md5(window.location.pathname.slice(1)),
+    clientID: '90a70ca67fe841a80b16',
+    clientSecret: 'fc0d2c7de421e284ceb2b8801c133660c8e99dd3',
+    repo: 'bestjarvan.github.io',
+    owner: 'BestJarvan',
+    admin: ['BestJarvan'],
+    distractionFreeMode: 'false',
+    language: 'zh-CN'
+  });
+  gitalk.render('gitalk-container');
+}
+
+if (true) {
+  loadGitalk();
+} else {
+  window.addEventListener('DOMContentLoaded', loadGitalk, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script><!-- hexo injector body_end start --><script>
+// Check that service workers are supported
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/dsr50_2101.model.json"},"display":{"position":"right","width":185,"height":375,"hOffset":160},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body></html>

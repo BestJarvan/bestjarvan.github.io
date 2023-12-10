@@ -1,0 +1,567 @@
+<!DOCTYPE html><html lang="zh-CN"><head><link rel="apple-touch-icon" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="180x180" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="152x152" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="120x120" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="76x76" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicon.png"><link rel="apple-touch-icon-precomposed" href="/favicon.png"><link rel="shortcut icon" href="/favicon.png"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="theme-color" content="#54bcff"><link rel="manifest" href="/manifest.json?v=2.6.2"><link rel="icon" href="/favicon1.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/favicon2.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="google-site-verification" content="ooqktqoO7JqLW09Wo87-gFgWun7T-VE055I9m2IsoXM"><meta name="msvalidate.01" content="E990DB0CBECF200DD90F7EC1F2242CA6"><meta name="baidu-site-verification" content="codeva-IHIk9G7I2J"><meta property="og:type" content="website">
+<meta property="og:title" content="Jiangyh&#39;s Blog">
+<meta property="og:url" content="https://www.jiangyh.cn/index.html">
+<meta property="og:site_name" content="Jiangyh&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Jarvan">
+<meta property="article:tag" content="javascript vue node typescript ionic npm">
+<meta name="twitter:card" content="summary"><title>Jiangyh's Blog</title><link ref="canonical" href="https://www.jiangyh.cn/index.html"><link rel="dns-prefetch" href="https://fastly.jsdelivr.net"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  author: 'Jarvan',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":false,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"carbon","highlight":"light","wordWrap":false},
+  reward: true,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: true,
+  pjax: {"avoidBanner":false},
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><!-- hexo injector head_end start --><link rel="manifest" href="/manifest.json" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-book"></i></span><span class="header-nav-menu-item__text">文章</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/archives/"><span class="header-nav-submenu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-submenu-item__text">归档</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/categories/"><span class="header-nav-submenu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-submenu-item__text">分类</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/tags/"><span class="header-nav-submenu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-submenu-item__text">标签</span></a></div></div></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/about/"><span class="header-nav-menu-item__icon"><i class="fas fa-fingerprint"></i></span><span class="header-nav-menu-item__text">关于我</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-cannabis"></i></span><span class="header-nav-menu-item__text">其他</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/friend/"><span class="header-nav-submenu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-submenu-item__text">友链</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Jiangyh's Blog</div><div class="header-banner-info__subtitle">Coding...</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2023/12/10/js/sse/">Serve-Send-Events(SSE)项目中应用</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-12-10</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-12-10</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">1.2k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">9分</span></span></div></header><div class="post-body"><div class="post-excerpt"><blockquote>
+<p>最近收到一个需求，需要做一套消息中心，需求倒是很简单，再用户有新消息时推送给web页面，提示用户有新消息未读，最初版本用短轮询方案实现，若是局部组件，可关闭页面后结束轮询，但是此消息中心是一个全局组件，只要开启页面就开始轮询，体验不佳，看着network密密麻麻的请求头都大了，随使用SSE方案。</p>
+</blockquote>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/WX20231205-151930.png"  alt="短轮询">
+      </p>
+
+        <h3 id="一、-对于这种消息推送目前几个成熟方案："   >
+          <a href="#一、-对于这种消息推送目前几个成熟方案：" class="heading-link"><i class="fas fa-link"></i></a><a href="#一、-对于这种消息推送目前几个成熟方案：" class="headerlink" title="一、 对于这种消息推送目前几个成熟方案："></a>一、 对于这种消息推送目前几个成熟方案：</h3>
+      <ol>
+<li>客户端轮询 (短轮询)</li>
+<li>服务端轮询 (长轮询)</li>
+<li>WebSocket</li>
+<li>SSE (Serve-Send-Events)</li>
+</ol>
+
+        <h3 id="二、各方案间区别："   >
+          <a href="#二、各方案间区别：" class="heading-link"><i class="fas fa-link"></i></a><a href="#二、各方案间区别：" class="headerlink" title="二、各方案间区别："></a>二、各方案间区别：</h3>
+      <div class="table-container"><table>
+<thead>
+<tr>
+<th>*</th>
+<th>客户端轮询</th>
+<th>服务端轮询</th>
+<th>WebSocket</th>
+<th>SSE</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>协议</td>
+<td>http</td>
+<td>http</td>
+<td>tcp</td>
+<td>http</td>
+</tr>
+<tr>
+<td>优点</td>
+<td>实现方便，兼容性好</td>
+<td>同短轮询，但比短轮询节约资源，相对短轮询请求次数少</td>
+<td>双全工通信协议，性能开销相对较小，可双向通信</td>
+<td>H5规范的一部分，无需安装直接使用；资源占用小；前端部分实现极其简单</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>占用较多内存和请求数；污染network列表</td>
+<td>同短轮询</td>
+<td>开发成本高；相对sse资源开销大</td>
+<td>单向推送；兼容性问题；只能get请求，且请求头无法加内容(或者使用第三方封装sse插件)</td>
+</tr>
+</tbody></table></div>
+
+        <h3 id="三、SSE兼容问题："   >
+          <a href="#三、SSE兼容问题：" class="heading-link"><i class="fas fa-link"></i></a><a href="#三、SSE兼容问题：" class="headerlink" title="三、SSE兼容问题："></a>三、SSE兼容问题：</h3>
+      <p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/image-20231210170510078.png"  alt="兼容浏览器">
+      </p>
+
+        <h3 id="四、SSE实现"   >
+          <a href="#四、SSE实现" class="heading-link"><i class="fas fa-link"></i></a><a href="#四、SSE实现" class="headerlink" title="四、SSE实现"></a>四、SSE实现</h3>
+      
+        <h4 id="1-前端实现"   >
+          <a href="#1-前端实现" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-前端实现" class="headerlink" title="1. 前端实现"></a>1. 前端实现</h4>
+      <p>通用代码，不兼容浏览器降级处理</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果断开链接15秒后重试，网络故障、接口故障等重连需要</span></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">RETRY_TIME</span> = <span class="number">15</span> * <span class="number">1000</span></span><br><span class="line"><span class="comment">// 生命周期中初始化此插件</span></span><br><span class="line"><span class="title function_">initNotify</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="string">&#x27;EventSource&#x27;</span> <span class="keyword">in</span> <span class="variable language_">window</span>) &#123;</span><br><span class="line">    <span class="comment">// 第一次刷新消息数</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">getUnReadNoticeCount</span>()</span><br><span class="line">    <span class="comment">// 注册sse</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">registerEvent</span>()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 不兼容走短轮询</span></span><br><span class="line">    <span class="built_in">clearTimeout</span>(<span class="variable language_">this</span>.<span class="property">timer</span>)</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">loopFetch</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// 注册事件</span></span><br><span class="line"><span class="title function_">registerEvent</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>()</span><br><span class="line">  <span class="keyword">if</span> (!<span class="variable language_">this</span>.<span class="property">sourceTime</span> || (now - <span class="variable language_">this</span>.<span class="property">sourceTime</span>) &gt;= <span class="variable constant_">RETRY_TIME</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">sourceTime</span> = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>()</span><br><span class="line">    <span class="keyword">const</span> user = <span class="title function_">getUserInfo</span>()</span><br><span class="line">    <span class="keyword">const</span> userId = user ? <span class="title class_">JSON</span>.<span class="title function_">parse</span>(user).<span class="property">userId</span> : <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="comment">// notifyNumUrl = &#x27;https://xxxx/message-center/sse/create?userId=&#x27;+id;</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">eventSource</span> = <span class="keyword">new</span> <span class="title class_">EventSource</span>(<span class="title function_">notifyNumUrl</span>(userId))</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;eventSource: &#x27;</span>, <span class="variable language_">this</span>.<span class="property">eventSource</span>);</span><br><span class="line">    <span class="comment">// 链接成功回调</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">eventSource</span>.<span class="property">onopen</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">clearTimeout</span>(<span class="variable language_">this</span>.<span class="property">errorTimer</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 持续接受消息</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">eventSource</span>.<span class="property">onmessage</span> = <span class="function">(<span class="params">&#123; data &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (data) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">noticeNum</span> = data</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 失败回调</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">eventSource</span>.<span class="property">onerror</span> = <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (error.<span class="property">currentTarget</span>.<span class="property">readyState</span> === <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">eventSource</span>.<span class="property">close</span> &amp;&amp; <span class="variable language_">this</span>.<span class="property">eventSource</span>.<span class="title function_">close</span>()</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">registerEvent</span>()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">errorTimer</span> = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">registerEvent</span>()</span><br><span class="line">    &#125;, <span class="variable constant_">RETRY_TIME</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// 降级处理，递归轮询接口</span></span><br><span class="line"><span class="title function_">loopFetch</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="title function_">getUnReadNoticeCount</span>()</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">timer</span> = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">loopFetch</span>()</span><br><span class="line">  &#125;, <span class="number">1000</span> * <span class="number">30</span>)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// 请求处理</span></span><br><span class="line"><span class="title function_">getUnReadNoticeCount</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// api请求</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h4 id="2-后端实现-JAVA-Spring-Web-MVC"   >
+          <a href="#2-后端实现-JAVA-Spring-Web-MVC" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-后端实现-JAVA-Spring-Web-MVC" class="headerlink" title="2. 后端实现 JAVA Spring Web MVC"></a>2. 后端实现 JAVA Spring Web MVC</h4>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/sse&quot;)</span></span><br><span class="line"><span class="meta">@Api(tags = &quot;Sse消息通知&quot;)</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SseController</span> <span class="keyword">extends</span> <span class="title class_">BaseController</span> &#123;</span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> SseService sseService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建新连接</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/create&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">createSession</span><span class="params">(String userId)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="keyword">return</span> sseService.createSession(userId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 关闭连接</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/close&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">closeSession</span><span class="params">(String userId)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        sseService.closeSession(userId);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@DubboService</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SseServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">SseService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> Map&lt;String, SseEmitter&gt; SSE_CACHE= <span class="keyword">new</span> <span class="title class_">ConcurrentHashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> Map&lt;String, Integer&gt; SEND_RECORD= <span class="keyword">new</span> <span class="title class_">ConcurrentHashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  创建连接</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> SseEmitter <span class="title function_">createSession</span><span class="params">(String clientId)</span> <span class="keyword">throws</span> IOException&#123;</span><br><span class="line">        <span class="comment">//需要手动清理（非正常关闭的情况下会一直保留原先的通道造成消息发送失败）</span></span><br><span class="line">        SEND_RECORD.remove(clientId);</span><br><span class="line">        <span class="comment">// 过期时间设置为0，表示永不过期</span></span><br><span class="line">        <span class="type">SseEmitter</span> <span class="variable">sseEmitter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SseEmitter</span>(<span class="number">0L</span>);</span><br><span class="line">        SSE_CACHE.put(clientId,sseEmitter);</span><br><span class="line">        log.info(<span class="string">&quot;客户端：&#123;&#125;  新建连接成功，当前客户端总数为【&#123;&#125;】&quot;</span>,clientId,SSE_CACHE.size() );</span><br><span class="line">        <span class="keyword">return</span> sseEmitter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">closeSession</span><span class="params">(String clientId)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (SSE_CACHE.containsKey(clientId))&#123;</span><br><span class="line">            SSE_CACHE.get(clientId).complete();</span><br><span class="line">            SSE_CACHE.remove(clientId);</span><br><span class="line">            SEND_RECORD.remove(clientId);</span><br><span class="line">            log.info(<span class="string">&quot;客户端：【&#123;&#125;】 断开成功，当前剩余客户端总数为【&#123;&#125;】&quot;</span>,clientId,SSE_CACHE.size());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@XxlJob(&quot;sendUnRead&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sendUnRead</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (SseServiceImpl.SSE_CACHE.size()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        List&lt;UnReadNoticePO&gt; unReadNoticePOS = noticeService.countAllUnReadNotice(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(SseServiceImpl.SSE_CACHE.keySet()));</span><br><span class="line">        log.info(<span class="string">&quot;stringIntegerMap&quot;</span>,unReadNoticePOS);</span><br><span class="line">        <span class="keyword">if</span>(CollectionUtil.isNotEmpty(unReadNoticePOS))&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (Map.Entry&lt;String, SseEmitter&gt; entry : SseServiceImpl.SSE_CACHE.entrySet()) &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> entry.getKey();</span><br><span class="line">                Optional&lt;UnReadNoticePO&gt; first = unReadNoticePOS.stream().filter(u -&gt; u.getUserId().equals(key)).findFirst();</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(first.isPresent())&#123;</span><br><span class="line">                    log.info(<span class="string">&quot;first&quot;</span>,first.get());</span><br><span class="line">                    <span class="type">SseEmitter</span> <span class="variable">sseEmitter</span> <span class="operator">=</span> SseServiceImpl.SSE_CACHE.get(key);</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        <span class="type">Integer</span> <span class="variable">lastNum</span> <span class="operator">=</span> SseServiceImpl.SEND_RECORD.get(first.get().getUserId());</span><br><span class="line">                        <span class="keyword">if</span>(ObjectUtil.isEmpty(lastNum) || lastNum!=first.get().getNum())&#123;</span><br><span class="line">                            sseEmitter.send(SseEmitter.event().reconnectTime(<span class="number">1000</span>).id(entry.getKey()).data(first.get().getNum()));</span><br><span class="line">                            log.info(entry.getKey()+<span class="string">&quot;发送消息成功，内容：&#123;&#125;&quot;</span>,first.get().getNum());</span><br><span class="line">                        &#125;</span><br><span class="line">                        SseServiceImpl.SEND_RECORD.put(first.get().getUserId(),first.get().getNum());</span><br><span class="line">                    &#125;<span class="keyword">catch</span> (IOException e)&#123;</span><br><span class="line">                        <span class="comment">//发送失败，移除</span></span><br><span class="line">                        SseServiceImpl.SSE_CACHE.remove(entry.getKey());</span><br><span class="line">                        log.error(entry.getKey()+<span class="string">&quot;消息发送失败，通道已关闭!&quot;</span>,e);</span><br><span class="line"></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="3-运维"   >
+          <a href="#3-运维" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-运维" class="headerlink" title="3. 运维"></a>3. 运维</h4>
+      <p>运维需要配合修改<code>nginx</code>配置的<code>proxy-read-timeout</code>超时时间，目前我们方案超时时间一小时。</p>
+
+        <h3 id="成品展示"   >
+          <a href="#成品展示" class="heading-link"><i class="fas fa-link"></i></a><a href="#成品展示" class="headerlink" title="成品展示"></a>成品展示</h3>
+      <p>此时只保留一条http请求，后端轮询到新消息就推送到前端，方便快捷，体验更好</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/image-20231210173206861.png"  alt="network">
+      </p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2023/09/20/notes/xbox-one/">Xbox One手柄改TypeC尾插</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-09-20</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-10-16</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">1k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">5分</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>本次改装按照<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://space.bilibili.com/57800164" >Foundries</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>大佬的教程搞得，附带一些个人心得</p>
+
+        <h3 id="准备的工具和材料"   >
+          <a href="#准备的工具和材料" class="heading-link"><i class="fas fa-link"></i></a><a href="#准备的工具和材料" class="headerlink" title="准备的工具和材料"></a>准备的工具和材料</h3>
+      <ul>
+<li>贴片式Type C 16Pin 母口</li>
+<li>热风枪(没有可以用打磨笔+电烙铁慢慢搞)</li>
+<li>电烙铁，焊锡，助焊剂</li>
+<li>六角螺丝刀(T6用于拆主板螺丝，外壳螺丝需要专用的防盗螺丝刀拆)</li>
+<li>30AWG跳线</li>
+<li>打磨笔(有更好，没也行)</li>
+<li>镊子</li>
+<li>5.1k ohm电阻*2(触发PD快充需要，最好准备0805，0603各一颗)</li>
+<li>0.1mm漆包线</li>
+<li>M1<em>2</em>1.5螺丝两颗(可选，主要是固定尾插用)</li>
+<li>AB树脂结构胶(可选)</li>
+<li>光固化绿油和固化灯</li>
+<li>聚酰亚胺胶带</li>
+<li>万用表</li>
+</ul></div><div class="post-readmore"><a class="post-readmore__link" href="/2023/09/20/notes/xbox-one/"><span class="post-readmore__text">阅读全文</span><span class="post-readmore__icon"><i class="fas fa-long-arrow-alt-right"></i></span></a></div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2023/09/19/node/puppeteer/">解决puppeteer依赖chromium内核下载失败问题</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-09-19</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-10-16</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">84</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">1分</span></span></div></header><div class="post-body"><div class="post-excerpt"><ol>
+<li><p>本地可使用代理魔法上网安装</p>
+</li>
+<li><p>服务器安装<br>配置puppeteer环境变量，使用国内镜像源下载</p>
+</li>
+</ol>
+<p>ps: v20.1.1(2023-05-05)版本更新 PUPPETEER_DOWNLOAD_HOST 环境变量改为 PUPPETEER_DOWNLOAD_BASE_URL</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">v20.1.1之前版本</span></span><br><span class="line">npm config set puppeteer_download_host=https://npmmirror.com/mirrors/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">v20.1.1以及之后版本</span></span><br><span class="line">npm config set puppeteer_download_base_url=https://npmmirror.com/mirrors/</span><br></pre></td></tr></table></div></figure>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2023/09/05/node/myself-cli/">从零搭建前端脚手架CLI工具</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-09-05</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-10-16</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">1.2k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">12分</span></span></div></header><div class="post-body"><div class="post-excerpt"><h4 id="目录结构"   >
+          <a href="#目录结构" class="heading-link"><i class="fas fa-link"></i></a><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4>
+      <p>首先从零搭建一套前端脚手架需要用到最核心的一个库就是<a target="_blank" rel="noopener" href="https://github.com/tj/commander.js/blob/HEAD/Readme_zh-CN.md"><code>commander</code></a></p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051127055.png"  alt="commanderjs">
+      </p></div><div class="post-readmore"><a class="post-readmore__link" href="/2023/09/05/node/myself-cli/"><span class="post-readmore__text">阅读全文</span><span class="post-readmore__icon"><i class="fas fa-long-arrow-alt-right"></i></span></a></div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2023/08/28/node/node-jenkins/">通过node调用Jenkins API完成构建过程</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-08-28</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-10-16</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">1.7k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">14分</span></span></div></header><div class="post-body"><div class="post-excerpt"><h4 id="前言"   >
+          <a href="#前言" class="heading-link"><i class="fas fa-link"></i></a><a href="#前言" class="headerlink" title="前言"></a>前言</h4>
+      <p>项目中使用jenkins挺久了，每次发布测试环境代码都需要手动去jenkins上发布，特别麻烦，想到两种解决方案，一种是通过CI/CD持续集成，一种是通过jenkins API调用配制好的job。</p>
+<ul>
+<li>第一种方案需要触发，还要推送代码到指定分支，不能完美解决目前的痛点。</li>
+<li>第二种方案灵活配置，手动触发，在需要的时候构建，可以解决目前的痛点。</li>
+</ul>
+<p>本文就讲解如何通过API完成测试环境的构建工作，生产环境不推荐这样做，生产环境一般都有严格的上线流程和权限控制。</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202308312004869.png"  alt="image-20230831200429836">
+      </p></div><div class="post-readmore"><a class="post-readmore__link" href="/2023/08/28/node/node-jenkins/"><span class="post-readmore__text">阅读全文</span><span class="post-readmore__icon"><i class="fas fa-long-arrow-alt-right"></i></span></a></div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/12/25/vue/micro-frontends/">微前端方案对比</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-12-25</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-10-16</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">2.4k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">21分</span></span></div></header><div class="post-body"><div class="post-excerpt"><h2 id="什么是微前端"   >
+          <a href="#什么是微前端" class="heading-link"><i class="fas fa-link"></i></a><a href="#什么是微前端" class="headerlink" title="什么是微前端"></a>什么是微前端</h2>
+      <p>微前端类似微服务，并不是指某一具体的技术，而是一种整合了技术、策略和方法的<strong>宏观架构方案</strong>，是一种将多个可独立交付的小型前端应用聚合为一个整体的架构风格。</p>
+
+        <h2 id="为什么选择微前端"   >
+          <a href="#为什么选择微前端" class="heading-link"><i class="fas fa-link"></i></a><a href="#为什么选择微前端" class="headerlink" title="为什么选择微前端"></a>为什么选择微前端</h2>
+      <p>微前端主要解决了两个问题:</p>
+<ol>
+<li><p>项目迭代导致巨石应用，难以维护</p>
+</li>
+<li><p>兼容历史应用，实现增量开发</p>
+</li>
+</ol></div><div class="post-readmore"><a class="post-readmore__link" href="/2022/12/25/vue/micro-frontends/"><span class="post-readmore__text">阅读全文</span><span class="post-readmore__icon"><i class="fas fa-long-arrow-alt-right"></i></span></a></div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/08/15/js/%E6%89%8B%E5%86%99call%E3%80%81apply%E3%80%81bind%E4%B8%8Ethis%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/">手写call、apply、bind与this指向问题</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-08-15</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-08-16</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">1.6k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">12分</span></span></div></header><div class="post-body"><div class="post-excerpt"><blockquote>
+<p>本文给大家介绍更完善的手写方法</p>
+<p>虽然手写call，apply，bind网上已经大把大把的文章，且本身知识点比较集中，但是网上的大部分方法都会有这样或者那样的问题，并不完善</p>
+<p>本文带大家从另一个角度，更加完善的理解、学习如何手写call、apply、bind</p>
+</blockquote>
+
+        <h3 id="一、用法与区别"   >
+          <a href="#一、用法与区别" class="heading-link"><i class="fas fa-link"></i></a><a href="#一、用法与区别" class="headerlink" title="一、用法与区别"></a>一、用法与区别</h3>
+      <ol>
+<li><p>call：</p>
+<p><code>call()</code> 方法使用一个指定的 <code>this</code> 值和单独给出的一个或多个参数来调用一个函数。</p>
+</li>
+<li><p>apply：</p>
+<p><code>apply()</code> 方法调用一个指定 <code>this</code> 值的函数，以及以一个数组（或一个<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects" >类数组对象</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>）的形式提供的参数。</p>
+</li>
+<li><p>bind：</p>
+<p><code>bind()</code> 方法创建一个新的函数，在 <code>bind()</code> 被调用时，这个新函数的 <code>this</code> 被指定为 <code>bind()</code> 的第一个参数，而其余参数将作为新函数的参数，供调用时使用。</p></div><div class="post-readmore"><a class="post-readmore__link" href="/2022/08/15/js/%E6%89%8B%E5%86%99call%E3%80%81apply%E3%80%81bind%E4%B8%8Ethis%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/"><span class="post-readmore__text">阅读全文</span><span class="post-readmore__icon"><i class="fas fa-long-arrow-alt-right"></i></span></a></div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/06/22/notes/%E4%BB%A3%E7%A0%81%E5%8F%AF%E8%AF%BB%E6%80%A7/">代码可读性</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-06-22</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-06-22</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">373</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">1分</span></span></div></header><div class="post-body"><div class="post-excerpt"><blockquote>
+<p>对软件来说，适当的规范和标准绝不是消灭代码内容的创造性、优雅性，而是限制过度个性化，以一种普遍认可的统一方式一起做事，提升协作效率。代码的字里行间流淌的是软件生命中的血液，质量的提升是尽可能少踩坑，杜绝踩重复的坑，切实提升质量意识。       ——《阿里巴巴开发手册》</p>
+</blockquote></div><div class="post-readmore"><a class="post-readmore__link" href="/2022/06/22/notes/%E4%BB%A3%E7%A0%81%E5%8F%AF%E8%AF%BB%E6%80%A7/"><span class="post-readmore__text">阅读全文</span><span class="post-readmore__icon"><i class="fas fa-long-arrow-alt-right"></i></span></a></div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/05/23/wechat/wx-html/">微信调整字体大小导致h5排版错乱问题解决方案</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-10-16</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">125</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">1分</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>把下面代码放到合适位置，列如app.vue即可</p>
+<p>iOS:</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  -webkit-text-size-<span class="attr">adjust</span>: <span class="number">100</span>% !important;</span><br><span class="line">  text-size-<span class="attr">adjust</span>: <span class="number">100</span>% !important;</span><br><span class="line">  -moz-text-size-<span class="attr">adjust</span>: <span class="number">100</span>% !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure></div><div class="post-readmore"><a class="post-readmore__link" href="/2022/05/23/wechat/wx-html/"><span class="post-readmore__text">阅读全文</span><span class="post-readmore__icon"><i class="fas fa-long-arrow-alt-right"></i></span></a></div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/04/10/vue/vue-init/">Vue源码之init</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-04-10</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-04-10</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">257</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">2分</span></span></div></header><div class="post-body"><div class="post-excerpt"><h4 id="1-Vue"   >
+          <a href="#1-Vue" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-Vue" class="headerlink" title="1.Vue"></a>1.Vue</h4>
+      <figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/core/instance/index.js</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Vue</span> (options) &#123;</span><br><span class="line">  <span class="keyword">if</span> (process.<span class="property">env</span>.<span class="property">NODE_ENV</span> !== <span class="string">&#x27;production&#x27;</span> &amp;&amp;</span><br><span class="line">    !(<span class="variable language_">this</span> <span class="keyword">instanceof</span> <span class="title class_">Vue</span>)</span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="title function_">warn</span>(<span class="string">&#x27;Vue is a constructor and should be called with the `new` keyword&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="title function_">_init</span>(options)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">initMixin</span>(<span class="title class_">Vue</span>)</span><br><span class="line"><span class="title function_">stateMixin</span>(<span class="title class_">Vue</span>)</span><br><span class="line"><span class="title function_">eventsMixin</span>(<span class="title class_">Vue</span>)</span><br><span class="line"><span class="title function_">lifecycleMixin</span>(<span class="title class_">Vue</span>)</span><br><span class="line"><span class="title function_">renderMixin</span>(<span class="title class_">Vue</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Vue</span></span><br></pre></td></tr></table></div></figure></div><div class="post-readmore"><a class="post-readmore__link" href="/2022/04/10/vue/vue-init/"><span class="post-readmore__text">阅读全文</span><span class="post-readmore__icon"><i class="fas fa-long-arrow-alt-right"></i></span></a></div></div></article></section><nav class="paginator"><div class="paginator-inner"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-right"></i></a></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201454997.png" alt="avatar"></div><p class="sidebar-ov-author__text">Matrix</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://gitee.com/bestjarvan" target="_blank" rel="noopener" data-popover="Gitee" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">码</span></a><a class="sidebar-ov-social-item" href="https://github.com/BestJarvan" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/jiang-ya-hui-37" target="_blank" rel="noopener" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">知</span></a><a class="sidebar-ov-social-item" href="https://www.jianshu.com/u/60beacd06321" target="_blank" rel="noopener" data-popover="简书" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">简</span></a><a class="sidebar-ov-social-item" href="tencent://message/?uin=532547613'" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2016~2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span><a href="https://github.com/BestJarvan" rel="noopener" target="_blank">Jarvan</a></span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://fastly.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://fastly.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://fastly.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://fastly.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://fastly.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="99" zIndex="-1"></script><script src="https://fastly.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="https://fastly.jsdelivr.net/npm/pjax@latest/pjax.min.js"></script><script>window.addEventListener('DOMContentLoaded', function () {
+  var pjax = new Pjax({"selectors":["head title","#main",".pjax-reload",".header-inner"],"history":true,"scrollTo":false,"scrollRestoration":false,"cacheBust":false,"debug":false,"currentUrlFullReload":false,"timeout":0});
+  // 加载进度条的计时器
+  var loadingTimer = null;
+
+  // 重置页面 Y 方向上的滚动偏移量
+  document.addEventListener('pjax:send', function () {
+    $('.header-nav-menu').removeClass('show');
+    if (CONFIG.pjax && CONFIG.pjax.avoidBanner) {
+      $('html').velocity('scroll', {
+        duration: 500,
+        offset: $('#header').height(),
+        easing: 'easeInOutCubic'
+      });
+    }
+
+    var loadingBarWidth = 20;
+    var MAX_LOADING_WIDTH = 95;
+
+    $('.loading-bar').addClass('loading');
+    $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    clearInterval(loadingTimer);
+    loadingTimer = setInterval(function () {
+      loadingBarWidth += 3;
+      if (loadingBarWidth > MAX_LOADING_WIDTH) {
+        loadingBarWidth = MAX_LOADING_WIDTH;
+      }
+      $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    }, 500);
+  }, false);
+
+  window.addEventListener('pjax:complete', function () {
+    clearInterval(loadingTimer);
+    $('.loading-bar__progress').css('width', '100%');
+    $('.loading-bar').removeClass('loading');
+    setTimeout(function () {
+      $('.loading-bar__progress').css('width', '0');
+    }, 400);
+    $('link[rel=prefetch], script[data-pjax-rm]').each(function () {
+      $(this).remove();
+    });
+    $('script[data-pjax], #pjax-reload script').each(function () {
+      $(this).parent().append($(this).remove());
+    });
+
+    if (Stun.utils.pjaxReloadBoot) {
+      Stun.utils.pjaxReloadBoot();
+    }
+    if (Stun.utils.pjaxReloadScroll) {
+      Stun.utils.pjaxReloadScroll();
+    }
+    if (Stun.utils.pjaxReloadSidebar) {
+      Stun.utils.pjaxReloadSidebar();
+    }
+    if (true) {
+      if (Stun.utils.pjaxReloadHeader) {
+        Stun.utils.pjaxReloadHeader();
+      }
+      if (Stun.utils.pjaxReloadScrollIcon) {
+        Stun.utils.pjaxReloadScrollIcon();
+      }
+      if (Stun.utils.pjaxReloadLocalSearch) {
+        Stun.utils.pjaxReloadLocalSearch();
+      }
+    }
+  }, false);
+}, false);</script><div id="pjax-reload"><script src="https://fastly.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script></div><script src="https://fastly.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js" data-pjax=""></script><script src="https://fastly.jsdelivr.net/npm/js-md5@latest/src/md5.min.js" data-pjax=""></script><script data-pjax="">function loadGitalk () {
+  if (!document.getElementById('gitalk-container')) {
+    return;
+  }
+
+  var gitalk = new Gitalk({
+    id: md5(window.location.pathname.slice(1)),
+    clientID: '90a70ca67fe841a80b16',
+    clientSecret: 'fc0d2c7de421e284ceb2b8801c133660c8e99dd3',
+    repo: 'bestjarvan.github.io',
+    owner: 'BestJarvan',
+    admin: ['BestJarvan'],
+    distractionFreeMode: 'false',
+    language: 'zh-CN'
+  });
+  gitalk.render('gitalk-container');
+}
+
+if (true) {
+  loadGitalk();
+} else {
+  window.addEventListener('DOMContentLoaded', loadGitalk, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script><!-- hexo injector body_end start --><script>
+// Check that service workers are supported
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/dsr50_2101.model.json"},"display":{"position":"right","width":185,"height":375,"hOffset":160},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body></html>

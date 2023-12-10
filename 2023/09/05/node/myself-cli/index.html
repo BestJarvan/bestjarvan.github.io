@@ -1,0 +1,479 @@
+<!DOCTYPE html><html lang="zh-CN"><head><link rel="apple-touch-icon" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="180x180" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="152x152" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="120x120" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="76x76" href="/favicon.png"><link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicon.png"><link rel="apple-touch-icon-precomposed" href="/favicon.png"><link rel="shortcut icon" href="/favicon.png"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="theme-color" content="#54bcff"><link rel="manifest" href="/manifest.json?v=2.6.2"><link rel="icon" href="/favicon1.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/favicon2.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="google-site-verification" content="ooqktqoO7JqLW09Wo87-gFgWun7T-VE055I9m2IsoXM"><meta name="msvalidate.01" content="E990DB0CBECF200DD90F7EC1F2242CA6"><meta name="baidu-site-verification" content="codeva-IHIk9G7I2J"><meta name="description" content="目录结构       首先从零搭建一套前端脚手架需要用到最核心的一个库就是commander">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零搭建前端脚手架CLI工具">
+<meta property="og:url" content="https://www.jiangyh.cn/2023/09/05/node/myself-cli/index.html">
+<meta property="og:site_name" content="Jiangyh&#39;s Blog">
+<meta property="og:description" content="目录结构       首先从零搭建一套前端脚手架需要用到最核心的一个库就是commander">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051127055.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051142236.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051144103.png">
+<meta property="article:published_time" content="2023-09-05T03:28:00.000Z">
+<meta property="article:modified_time" content="2023-10-16T11:15:25.649Z">
+<meta property="article:author" content="Jarvan">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="CLI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051127055.png"><title>从零搭建前端脚手架CLI工具 | Jiangyh's Blog</title><link ref="canonical" href="https://www.jiangyh.cn/2023/09/05/node/myself-cli/"><link rel="dns-prefetch" href="https://fastly.jsdelivr.net"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  author: 'Jarvan',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":false,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"carbon","highlight":"light","wordWrap":false},
+  reward: true,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: true,
+  pjax: {"avoidBanner":false},
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><!-- hexo injector head_end start --><link rel="manifest" href="/manifest.json" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner header-inner--height header-inner--bgcolor"><nav class="header-nav header-nav--sticky"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-book"></i></span><span class="header-nav-menu-item__text">文章</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/archives/"><span class="header-nav-submenu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-submenu-item__text">归档</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/categories/"><span class="header-nav-submenu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-submenu-item__text">分类</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/tags/"><span class="header-nav-submenu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-submenu-item__text">标签</span></a></div></div></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/about/"><span class="header-nav-menu-item__icon"><i class="fas fa-fingerprint"></i></span><span class="header-nav-menu-item__text">关于我</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-cannabis"></i></span><span class="header-nav-menu-item__text">其他</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/friend/"><span class="header-nav-submenu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-submenu-item__text">友链</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">从零搭建前端脚手架CLI工具</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-09-05</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-10-16</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">1.2k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">12分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body">
+        <h4 id="目录结构"   >
+          <a href="#目录结构" class="heading-link"><i class="fas fa-link"></i></a><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4>
+      <p>首先从零搭建一套前端脚手架需要用到最核心的一个库就是<a target="_blank" rel="noopener" href="https://github.com/tj/commander.js/blob/HEAD/Readme_zh-CN.md"><code>commander</code></a></p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051127055.png"  alt="commanderjs">
+      </p>
+<span id="more"></span>
+
+<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/BestJarvan/helper-cli" >github仓库</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>完整目录</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── bin <span class="comment">// 脚本识别文件</span></span><br><span class="line">│   └── helper-cli <span class="comment">// 脚本</span></span><br><span class="line">├── lib <span class="comment">// 需要的方法等</span></span><br><span class="line">│   ├── deploy.<span class="property">js</span></span><br><span class="line">│   ├── init-token.<span class="property">js</span></span><br><span class="line">│   └── logo.<span class="property">js</span></span><br><span class="line">├── package.<span class="property">json</span></span><br><span class="line">└── session <span class="comment">// 存放一些临时文件</span></span><br><span class="line">    └── token.<span class="property">json</span></span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h4 id="修改package文件"   >
+          <a href="#修改package文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#修改package文件" class="headerlink" title="修改package文件"></a>修改package文件</h4>
+      <p> <code>package.json</code>需要配置<code>bin</code>字段，指明脚本入口文件和脚本命令的名称</p>
+<figure class="highlight json"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">	<span class="attr">&quot;bin&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;helper-cli&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./bin/helper-cli&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h4 id="helper-cli的开发"   >
+          <a href="#helper-cli的开发" class="heading-link"><i class="fas fa-link"></i></a><a href="#helper-cli的开发" class="headerlink" title="helper-cli的开发"></a>helper-cli的开发</h4>
+      <ol>
+<li>首先需要声明运行环境 <code>#!/usr/bin/env node</code> 指明使用<code>node</code>运行此脚本</li>
+<li>使用<code>program</code>注册命令名称和说明等</li>
+<li>使用<code>action</code>调用命令的执行函数</li>
+</ol>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env node</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; program &#125; = <span class="built_in">require</span>(<span class="string">&#x27;commander&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> chalk = <span class="built_in">require</span>(<span class="string">&#x27;chalk&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> leven = <span class="built_in">require</span>(<span class="string">&#x27;leven&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> pkg = <span class="built_in">require</span>(<span class="string">&#x27;../package.json&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> logo = <span class="built_in">require</span>(<span class="string">&#x27;../lib/logo&#x27;</span>)</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .<span class="title function_">version</span>(<span class="string">`<span class="subst">$&#123;pkg.name&#125;</span>: <span class="subst">$&#123;pkg.version&#125;</span>`</span>, <span class="string">&#x27;-v, --version&#x27;</span>)</span><br><span class="line">  .<span class="title function_">usage</span>(<span class="string">&#x27;&lt;command&gt; [options]&#x27;</span>)</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .<span class="title function_">command</span>(<span class="string">&#x27;jenkins&#x27;</span>)</span><br><span class="line">  .<span class="title function_">alias</span>(<span class="string">&#x27;jk&#x27;</span>)</span><br><span class="line">  .<span class="title function_">description</span>(<span class="string">&#x27;Init jenkins Token&#x27;</span>)</span><br><span class="line">  .<span class="title function_">action</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">logo</span>()</span><br><span class="line">    <span class="built_in">require</span>(<span class="string">&#x27;../lib/init-token&#x27;</span>)()</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .<span class="title function_">command</span>(<span class="string">&#x27;deploy &lt;name&gt; [branch]&#x27;</span>)</span><br><span class="line">  .<span class="title function_">alias</span>(<span class="string">&#x27;dp&#x27;</span>)</span><br><span class="line">  .<span class="title function_">description</span>(<span class="string">&#x27;Deploy the project (&lt;name&gt;) to the test environment&#x27;</span>)</span><br><span class="line">  .<span class="title function_">action</span>(<span class="function">(<span class="params">name, branch</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">logo</span>()</span><br><span class="line">    <span class="built_in">require</span>(<span class="string">&#x27;../lib/deploy&#x27;</span>)(name, branch)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .<span class="title function_">arguments</span>(<span class="string">&#x27;&lt;command&gt;&#x27;</span>)</span><br><span class="line">  .<span class="title function_">action</span>(<span class="function">(<span class="params">cmd</span>) =&gt;</span> &#123;</span><br><span class="line">    program.<span class="title function_">outputHelp</span>()</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`  `</span> + chalk.<span class="title function_">red</span>(<span class="string">`Unknown command <span class="subst">$&#123;chalk.yellow(cmd)&#125;</span>.`</span>))</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>()</span><br><span class="line">    <span class="title function_">suggestCommands</span>(cmd)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">program.<span class="title function_">parse</span>(process.<span class="property">argv</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">suggestCommands</span> (unknownCommand) &#123;</span><br><span class="line">  <span class="keyword">const</span> availableCommands = program.<span class="property">commands</span>.<span class="title function_">map</span>(<span class="function"><span class="params">cmd</span> =&gt;</span> cmd.<span class="property">_name</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> suggestion</span><br><span class="line"></span><br><span class="line">  availableCommands.<span class="title function_">forEach</span>(<span class="function"><span class="params">cmd</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> isBestMatch = <span class="title function_">leven</span>(cmd, unknownCommand) &lt; <span class="title function_">leven</span>(suggestion || <span class="string">&#x27;&#x27;</span>, unknownCommand)</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_">leven</span>(cmd, unknownCommand) &lt; <span class="number">3</span> &amp;&amp; isBestMatch) &#123;</span><br><span class="line">      suggestion = cmd</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (suggestion) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`  `</span> + chalk.<span class="title function_">red</span>(<span class="string">`Did you mean <span class="subst">$&#123;chalk.yellow(suggestion)&#125;</span>?`</span>))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="lib文件的开发"   >
+          <a href="#lib文件的开发" class="heading-link"><i class="fas fa-link"></i></a><a href="#lib文件的开发" class="headerlink" title="lib文件的开发"></a>lib文件的开发</h4>
+      <ol>
+<li><code>init-token</code>文件，使用<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/inquirer"><code>inquirer</code></a>库完成命令行的指令交互</li>
+</ol>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> chalk = <span class="built_in">require</span>(<span class="string">&quot;chalk&quot;</span>)</span><br><span class="line"><span class="keyword">const</span> figlet = <span class="built_in">require</span>(<span class="string">&quot;figlet&quot;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">default</span>: confirm &#125; = <span class="built_in">require</span>(<span class="string">&quot;@inquirer/confirm&quot;</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">default</span>: input &#125; = <span class="built_in">require</span>(<span class="string">&#x27;@inquirer/input&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以默认给初始值</span></span><br><span class="line"><span class="keyword">let</span> account = <span class="string">&quot;default&quot;</span></span><br><span class="line"><span class="keyword">let</span> token = <span class="string">&quot;defaultToken&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">initToken</span> () &#123;</span><br><span class="line">  <span class="keyword">const</span> answer = <span class="keyword">await</span> <span class="title function_">confirm</span>(&#123; <span class="attr">message</span>: <span class="string">&#x27;初始化本地jenkins配置, 是否使用默认配置 ?&#x27;</span>, <span class="attr">default</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">  <span class="keyword">if</span> (!answer) &#123;</span><br><span class="line">    account = <span class="keyword">await</span> <span class="title function_">input</span>(&#123; <span class="attr">message</span>: <span class="string">&#x27;jenkins账号:&#x27;</span> &#125;)</span><br><span class="line">    token = <span class="keyword">await</span> <span class="title function_">input</span>(&#123; <span class="attr">message</span>: <span class="string">&#x27;jenkins密码(token):&#x27;</span> &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">genTokenFile</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">genTokenFile</span> () &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    fs.<span class="title function_">writeFileSync</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;../session&#x27;</span>, <span class="string">&#x27;token.json&#x27;</span>), <span class="string">`&#123; &quot;account&quot;: &quot;<span class="subst">$&#123;account&#125;</span>&quot;, &quot;token&quot;: &quot;<span class="subst">$&#123;token&#125;</span>&quot; &#125;`</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;jenkins配置初始化完成&#x27;</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(</span><br><span class="line">      chalk.<span class="title function_">green</span>(</span><br><span class="line">        figlet.<span class="title function_">textSync</span>(<span class="string">&quot;SUCCESS&quot;</span>, &#123;</span><br><span class="line">          <span class="attr">font</span>: <span class="string">&quot;Soft&quot;</span>,</span><br><span class="line">          <span class="attr">horizontalLayout</span>: <span class="string">&quot;default&quot;</span>,</span><br><span class="line">          <span class="attr">verticalLayout</span>: <span class="string">&quot;default&quot;</span></span><br><span class="line">        &#125;)</span><br><span class="line">      )</span><br><span class="line">    );</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;error: &#x27;</span>, error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = initToken</span><br></pre></td></tr></table></div></figure>
+
+<ol start="2">
+<li><code>deploy.js</code>和第一版相似，修改触发方法</li>
+</ol>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Jenkins</span> = <span class="built_in">require</span>(<span class="string">&#x27;jenkins&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; exec &#125; = <span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> package = <span class="built_in">require</span>(<span class="string">&#x27;../package.json&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> auth = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> jobName = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> jenkins</span><br><span class="line"><span class="keyword">let</span> branchName = <span class="string">&#x27;test&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 接受两个参数，branch为可选参数，默认test</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">deploy</span> (name, branch) &#123;</span><br><span class="line">  jobName = name</span><br><span class="line">  <span class="keyword">if</span> (branch) &#123;</span><br><span class="line">    branchName = branch</span><br><span class="line">    <span class="title function_">initJenkins</span>()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_">getGitBranch</span>()</span><br><span class="line">      .<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        branchName = res</span><br><span class="line">        <span class="title function_">initJenkins</span>()</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">initJenkins</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> data = fs.<span class="title function_">readFileSync</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;../session&#x27;</span>, <span class="string">&#x27;token.json&#x27;</span>), <span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">assign</span>(auth, <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data))</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      jenkins = <span class="keyword">new</span> <span class="title class_">Jenkins</span>(&#123;</span><br><span class="line">        <span class="attr">baseUrl</span>: <span class="string">`https://<span class="subst">$&#123;auth.account&#125;</span>:<span class="subst">$&#123;auth.token&#125;</span>@jenkins-test.xxx.com`</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="title function_">triggerBuild</span>()</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(error);</span><br><span class="line">      process.<span class="title function_">exit</span>(<span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">`配置文件未找到，请先运行 <span class="subst">$&#123;package.name&#125;</span> jk 生成配置文件`</span>)</span><br><span class="line">    process.<span class="title function_">exit</span>(<span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getGitBranch</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">exec</span>(<span class="string">&#x27;git rev-parse --abbrev-ref HEAD&#x27;</span>, <span class="function">(<span class="params">error, stdout, stderr</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (error) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">`exec error: <span class="subst">$&#123;error&#125;</span>`</span>)</span><br><span class="line">        <span class="title function_">reject</span>()</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="title function_">resolve</span>(stdout.<span class="title function_">trim</span>())</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">triggerBuild</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">await</span> jenkins.<span class="property">job</span>.<span class="title function_">build</span>(&#123;</span><br><span class="line">      <span class="attr">name</span>: jobName,</span><br><span class="line">      <span class="attr">parameters</span>: &#123;</span><br><span class="line">        <span class="attr">branch</span>: branchName,</span><br><span class="line">        <span class="attr">merge</span>: <span class="literal">true</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">token</span>: auth.<span class="property">token</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;准备构建...&#x27;</span>, result)</span><br><span class="line">    <span class="title function_">waitOnQueue</span>(result)</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;error: &#x27;</span>, error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">waitOnQueue</span>(<span class="params">id</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> jenkins.<span class="property">queue</span>.<span class="title function_">item</span>(id)</span><br><span class="line">  <span class="keyword">if</span> (result.<span class="property">executable</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;开始构建: &#x27;</span>, jobName);</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">logBuild</span>(result.<span class="property">executable</span>.<span class="property">number</span>)</span><br><span class="line">    &#125;, <span class="number">500</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (result.<span class="property">cancelled</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;构建已取消&#x27;</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">waitOnQueue</span>(id)</span><br><span class="line">    &#125;, <span class="number">500</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">logBuild</span>(<span class="params">id</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;构建中...&#x27;</span>, id)</span><br><span class="line">  <span class="keyword">const</span> log = jenkins.<span class="property">build</span>.<span class="title function_">logStream</span>(jobName, id);</span><br><span class="line"></span><br><span class="line">  log.<span class="title function_">on</span>(<span class="string">&quot;data&quot;</span>, <span class="function">(<span class="params">text</span>) =&gt;</span> &#123;</span><br><span class="line">    process.<span class="property">stdout</span>.<span class="title function_">write</span>(text);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  log.<span class="title function_">on</span>(<span class="string">&quot;error&quot;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;error&quot;</span>, err);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  log.<span class="title function_">on</span>(<span class="string">&quot;end&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;success: 构建完成.&quot;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = deploy</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="logo-js全局的logo输出"   >
+          <a href="#logo-js全局的logo输出" class="heading-link"><i class="fas fa-link"></i></a><a href="#logo-js全局的logo输出" class="headerlink" title="logo.js全局的logo输出"></a><code>logo.js</code>全局的logo输出</h4>
+      <figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> chalk = <span class="built_in">require</span>(<span class="string">&#x27;chalk&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> figlet = <span class="built_in">require</span>(<span class="string">&quot;figlet&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(</span><br><span class="line">    chalk.<span class="title function_">cyan</span>(</span><br><span class="line">      figlet.<span class="title function_">textSync</span>(<span class="string">&quot;Helper CLI&quot;</span>, &#123;</span><br><span class="line">        <span class="attr">font</span>: <span class="string">&quot;Ghost&quot;</span>,</span><br><span class="line">        <span class="attr">horizontalLayout</span>: <span class="string">&quot;default&quot;</span>,</span><br><span class="line">        <span class="attr">verticalLayout</span>: <span class="string">&quot;default&quot;</span>,</span><br><span class="line">        <span class="attr">width</span>: <span class="number">100</span></span><br><span class="line">      &#125;)</span><br><span class="line">    )</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051142236.png"  alt="logo">
+      </p>
+<p>开发中我们可以使用<code>npm link</code> 把我们开发中的指令关联到全局指令中，我们可以全局使用<code>helper-cli -h</code>查看帮助</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051144103.png"  alt="help">
+      </p>
+<p>开发调试完成后，我们可以发布到npm市场，或者公司内部私有npm平台，提供给项目使用，如果非全局安装，可以配合项目内的<code>.npmrc</code>指定本CLI的安装源</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://www.jiangyh.cn">Jarvan</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="https://www.jiangyh.cn/2023/09/05/node/myself-cli/">https://www.jiangyh.cn/2023/09/05/node/myself-cli/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/javascript/">javascript</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/nodejs/">nodejs</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://www.jiangyh.cn/tags/CLI/">CLI</a></span></div><div class="post-reward reward"><div class="reward-button">请我喝杯咖啡~</div><div class="reward-qrcode"><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221031585.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221031231.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2023/09/19/node/puppeteer/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">解决puppeteer依赖chromium内核下载失败问题</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2023/08/28/node/node-jenkins/"><span class="paginator-prev__text">通过node调用Jenkins API完成构建过程</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="gitalk-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">
+          目录结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9package%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">
+          修改package文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#helper-cli%E7%9A%84%E5%BC%80%E5%8F%91"><span class="toc-number">3.</span> <span class="toc-text">
+          helper-cli的开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lib%E6%96%87%E4%BB%B6%E7%9A%84%E5%BC%80%E5%8F%91"><span class="toc-number">4.</span> <span class="toc-text">
+          lib文件的开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#logo-js%E5%85%A8%E5%B1%80%E7%9A%84logo%E8%BE%93%E5%87%BA"><span class="toc-number">5.</span> <span class="toc-text">
+          logo.js全局的logo输出</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309201454997.png" alt="avatar"></div><p class="sidebar-ov-author__text">Matrix</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://gitee.com/bestjarvan" target="_blank" rel="noopener" data-popover="Gitee" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">码</span></a><a class="sidebar-ov-social-item" href="https://github.com/BestJarvan" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/jiang-ya-hui-37" target="_blank" rel="noopener" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">知</span></a><a class="sidebar-ov-social-item" href="https://www.jianshu.com/u/60beacd06321" target="_blank" rel="noopener" data-popover="简书" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">简</span></a><a class="sidebar-ov-social-item" href="tencent://message/?uin=532547613'" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2016~2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span><a href="https://github.com/BestJarvan" rel="noopener" target="_blank">Jarvan</a></span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://fastly.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://fastly.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://fastly.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://fastly.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://fastly.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="99" zIndex="-1"></script><script src="https://fastly.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="https://fastly.jsdelivr.net/npm/pjax@latest/pjax.min.js"></script><script>window.addEventListener('DOMContentLoaded', function () {
+  var pjax = new Pjax({"selectors":["head title","#main",".pjax-reload",".header-inner"],"history":true,"scrollTo":false,"scrollRestoration":false,"cacheBust":false,"debug":false,"currentUrlFullReload":false,"timeout":0});
+  // 加载进度条的计时器
+  var loadingTimer = null;
+
+  // 重置页面 Y 方向上的滚动偏移量
+  document.addEventListener('pjax:send', function () {
+    $('.header-nav-menu').removeClass('show');
+    if (CONFIG.pjax && CONFIG.pjax.avoidBanner) {
+      $('html').velocity('scroll', {
+        duration: 500,
+        offset: $('#header').height(),
+        easing: 'easeInOutCubic'
+      });
+    }
+
+    var loadingBarWidth = 20;
+    var MAX_LOADING_WIDTH = 95;
+
+    $('.loading-bar').addClass('loading');
+    $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    clearInterval(loadingTimer);
+    loadingTimer = setInterval(function () {
+      loadingBarWidth += 3;
+      if (loadingBarWidth > MAX_LOADING_WIDTH) {
+        loadingBarWidth = MAX_LOADING_WIDTH;
+      }
+      $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    }, 500);
+  }, false);
+
+  window.addEventListener('pjax:complete', function () {
+    clearInterval(loadingTimer);
+    $('.loading-bar__progress').css('width', '100%');
+    $('.loading-bar').removeClass('loading');
+    setTimeout(function () {
+      $('.loading-bar__progress').css('width', '0');
+    }, 400);
+    $('link[rel=prefetch], script[data-pjax-rm]').each(function () {
+      $(this).remove();
+    });
+    $('script[data-pjax], #pjax-reload script').each(function () {
+      $(this).parent().append($(this).remove());
+    });
+
+    if (Stun.utils.pjaxReloadBoot) {
+      Stun.utils.pjaxReloadBoot();
+    }
+    if (Stun.utils.pjaxReloadScroll) {
+      Stun.utils.pjaxReloadScroll();
+    }
+    if (Stun.utils.pjaxReloadSidebar) {
+      Stun.utils.pjaxReloadSidebar();
+    }
+    if (true) {
+      if (Stun.utils.pjaxReloadHeader) {
+        Stun.utils.pjaxReloadHeader();
+      }
+      if (Stun.utils.pjaxReloadScrollIcon) {
+        Stun.utils.pjaxReloadScrollIcon();
+      }
+      if (Stun.utils.pjaxReloadLocalSearch) {
+        Stun.utils.pjaxReloadLocalSearch();
+      }
+    }
+  }, false);
+}, false);</script><div id="pjax-reload"><script src="https://fastly.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script></div><script src="https://fastly.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js" data-pjax=""></script><script src="https://fastly.jsdelivr.net/npm/js-md5@latest/src/md5.min.js" data-pjax=""></script><script data-pjax="">function loadGitalk () {
+  if (!document.getElementById('gitalk-container')) {
+    return;
+  }
+
+  var gitalk = new Gitalk({
+    id: md5(window.location.pathname.slice(1)),
+    clientID: '90a70ca67fe841a80b16',
+    clientSecret: 'fc0d2c7de421e284ceb2b8801c133660c8e99dd3',
+    repo: 'bestjarvan.github.io',
+    owner: 'BestJarvan',
+    admin: ['BestJarvan'],
+    distractionFreeMode: 'false',
+    language: 'zh-CN'
+  });
+  gitalk.render('gitalk-container');
+}
+
+if (true) {
+  loadGitalk();
+} else {
+  window.addEventListener('DOMContentLoaded', loadGitalk, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script><!-- hexo injector body_end start --><script>
+// Check that service workers are supported
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/dsr50_2101.model.json"},"display":{"position":"right","width":185,"height":375,"hOffset":160},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body></html>
