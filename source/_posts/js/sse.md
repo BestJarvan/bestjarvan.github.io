@@ -1,5 +1,5 @@
 ---
-title: Serve-Send-Events(SSE)项目中应用
+title: Serve-Send Events(SSE)项目中应用
 date: 2023.12.10 16:03
 categories: 
   - js
@@ -16,7 +16,7 @@ tags:
 1. 客户端轮询 (短轮询)
 2. 服务端轮询 (长轮询)
 3. WebSocket
-4. SSE (Serve-Send-Events)
+4. SSE (Serve-Send Events)
 
 <!-- more -->
 
