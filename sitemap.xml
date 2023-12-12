@@ -4,14 +4,14 @@
   <url>
     <loc>https://www.jiangyh.cn/2023/12/10/js/sse/</loc>
     
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.jiangyh.cn/friend/index.html</loc>
+    <loc>https://www.jiangyh.cn/tags/index.html</loc>
     
     <lastmod>2023-10-16</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://www.jiangyh.cn/tags/index.html</loc>
+    <loc>https://www.jiangyh.cn/friend/index.html</loc>
     
     <lastmod>2023-10-16</lastmod>
     
@@ -101,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://www.jiangyh.cn/2023/08/28/node/node-jenkins/</loc>
+    <loc>https://www.jiangyh.cn/2023/09/05/node/myself-cli/</loc>
     
     <lastmod>2023-10-16</lastmod>
     
@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://www.jiangyh.cn/2023/09/05/node/myself-cli/</loc>
+    <loc>https://www.jiangyh.cn/2023/08/28/node/node-jenkins/</loc>
     
     <lastmod>2023-10-16</lastmod>
     
@@ -337,7 +337,7 @@
 
   <url>
     <loc>https://www.jiangyh.cn/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -345,294 +345,294 @@
   
   <url>
     <loc>https://www.jiangyh.cn/tags/ionic2/</loc>
-    <lastmod>2023-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangyh.cn/tags/cordova/</loc>
-    <lastmod>2023-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangyh.cn/tags/angular/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/jpush/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangyh.cn/tags/angular/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangyh.cn/tags/cordova/</loc>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/jquery/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/javascript/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/event-loop/</loc>
-    <lastmod>2023-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangyh.cn/tags/input/</loc>
-    <lastmod>2023-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangyh.cn/tags/SSE/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/cookie/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/indexedDB/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/localStorage/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/sessionStorage/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.jiangyh.cn/tags/nodejs/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <loc>https://www.jiangyh.cn/tags/input/</loc>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.jiangyh.cn/tags/jenkins/</loc>
-    <lastmod>2023-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangyh.cn/tags/shell/</loc>
-    <lastmod>2023-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangyh.cn/tags/CLI/</loc>
-    <lastmod>2023-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangyh.cn/tags/html/</loc>
-    <lastmod>2023-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangyh.cn/tags/puppeteer/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <loc>https://www.jiangyh.cn/tags/SSE/</loc>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/macOS/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/Xcode/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/Simulator/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/typescript/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/jest/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/npm/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/vue2/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/git/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/vue/</loc>
-    <lastmod>2023-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangyh.cn/tags/verdaccio/</loc>
-    <lastmod>2023-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangyh.cn/tags/rollup/</loc>
-    <lastmod>2023-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangyh.cn/tags/pm2/</loc>
-    <lastmod>2023-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangyh.cn/tags/typedoc/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/xbox/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/DIY/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.jiangyh.cn/tags/memory/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <loc>https://www.jiangyh.cn/tags/verdaccio/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangyh.cn/tags/rollup/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangyh.cn/tags/pm2/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangyh.cn/tags/typedoc/</loc>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/nrm/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangyh.cn/tags/memory/</loc>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/qiankun/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/wujie/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/micro-app/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/vue%E6%BA%90%E7%A0%81/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangyh.cn/tags/shell/</loc>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/tags/wechat/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangyh.cn/tags/nodejs/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangyh.cn/tags/CLI/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangyh.cn/tags/jenkins/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangyh.cn/tags/html/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangyh.cn/tags/puppeteer/</loc>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -641,49 +641,49 @@
   
   <url>
     <loc>https://www.jiangyh.cn/categories/ionic2/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/categories/js/</loc>
-    <lastmod>2023-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangyh.cn/categories/node/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/categories/notes/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/categories/npm/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/categories/vue/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.jiangyh.cn/categories/wechat/</loc>
-    <lastmod>2023-12-10</lastmod>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangyh.cn/categories/node/</loc>
+    <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
