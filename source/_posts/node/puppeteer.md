@@ -18,13 +18,14 @@ ps: v20.1.1(2023-05-05)版本更新 PUPPETEER_DOWNLOAD_HOST 环境变量改为 P
 ```shell
 # v20.1.1之前版本
 npm config set puppeteer_download_host=https://npmmirror.com/mirrors/
+# 备用镜像地址
+npm config set puppeteer_download_host="https://cdn.npmmirror.com/binaries/"
 
 # v20.1.1以及之后版本
 npm config set puppeteer_download_base_url=https://npmmirror.com/mirrors/
+# 备用镜像地址
+npm config set puppeteer_download_base_url=https://cdn.npmmirror.com/binaries/chrome-for-testing/
 
 # 不需要下载则需要补充环境变量，跳过下载内核步骤
 PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ```
-
-3. 备用镜像地址
- - `https://cdn.npmmirror.com/binaries/chrome-for-testing`
