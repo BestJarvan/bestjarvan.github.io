@@ -21,4 +21,10 @@ npm config set puppeteer_download_host=https://npmmirror.com/mirrors/
 
 # v20.1.1以及之后版本
 npm config set puppeteer_download_base_url=https://npmmirror.com/mirrors/
+
+# 不需要下载则需要补充环境变量，跳过下载内核步骤
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ```
+
+3. 备用镜像地址
+ - `https://cdn.npmmirror.com/binaries/chrome-for-testing`
