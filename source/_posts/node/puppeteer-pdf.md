@@ -18,13 +18,20 @@ chromium升级到119之后导致原本20页的pdf生成超级慢，通过打印�
 
 
 
-Issues: [#11494](https://github.com/puppeteer/puppeteer/issues/11494)
+- Issues: [#11494](https://github.com/puppeteer/puppeteer/issues/11494)
 
-`puppeteer`和`chromium`对照表: [support](https://pptr.dev/chromium-support)
+- `puppeteer`和`chromium`对照表: [support](https://pptr.dev/chromium-support)
 
+- 依赖对照表(提示缺少依赖可以对比安装): [Chrome doesn't launch on Linux](https://pptr.dev/troubleshooting#chrome-doesnt-launch-on-linux)
+
+- 中文乱码: 需要自行下载字体库
+``` shell
+# 在字体文件目录安装字体
+sudo mkfontscale
+sudo mkfontdir
+sudo fc-cache -fv
+```
 
 
 ![#11494](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/image-20231228174532723.png)
-
-
 
