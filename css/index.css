@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'hytmr55';
-  src: url("https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/font/hytmr55.woff2");
+  src: url("https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/font/hytmr55.woff2");
   font-display: swap;
 }
 body,
@@ -932,7 +932,7 @@ kbd {
   z-index: 0;
   width: 100%;
   height: 100%;
-  background: url("https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221030367.jpeg") no-repeat center/cover;
+  background: url("https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221030367.jpeg") no-repeat center/cover;
 }
 .header-banner::before {
   content: '';
