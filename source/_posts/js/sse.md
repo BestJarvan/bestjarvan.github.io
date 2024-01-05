@@ -20,7 +20,7 @@ tags:
 
 <!-- more -->
 
-![短轮询](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/WX20231205-151930.png)
+![短轮询](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/WX20231205-151930.png)
 
 ### 各方案间区别：
 
@@ -32,7 +32,7 @@ tags:
 
 ### SSE兼容问题：
 
-![兼容浏览器](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/image-20231210170510078.png)
+![兼容浏览器](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/image-20231210170510078.png)
 
 ### SSE实现
 
@@ -40,7 +40,7 @@ tags:
 
 经过测试环境几天的运行发现了新的问题，当用户挂机时，js代码也在正常的跑，如果用户忘记关闭页面，且电脑从不关机，就会导致页面请求每隔一小时发送一次，实际绝大部分挂机时间不需要维持此链接，那么我们可以通过`visibilitychange`事件优化我们的消息通知
 
-![visible](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/image-20231212104513647.png)
+![visible](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/image-20231212104513647.png)
 
 通过mdn文档可知，我们可以通过`visible`和`hidden`去优化我们的代码
 
@@ -265,7 +265,7 @@ public void sendUnRead(){
 
 此时只保留一条http请求，后端轮询到新消息就推送到前端，若前端页面不显示或被隐藏(锁屏切标签等)则不去请求，若页面显示则自动恢复请求。方便快捷，体验更好
 
-![network](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/image-20231210173206861.png)
+![network](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/image-20231210173206861.png)
 
 
 

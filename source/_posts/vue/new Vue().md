@@ -44,5 +44,5 @@ Vue: `vue@2.6.14`
 
 ### 生命周期
 
-![new Vue()](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202203081423948.png)
+![new Vue()](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202203081423948.png)
 

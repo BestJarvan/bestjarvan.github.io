@@ -3,7 +3,7 @@
 </h1>
 
 <picture>
-  <img align="right" width="35%" style="border: none" src="https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221702310.gif">
+  <img align="right" width="35%" style="border: none" src="https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303221702310.gif">
 </picture>
 
 ### 🤵 About Me

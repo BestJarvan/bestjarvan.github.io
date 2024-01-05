@@ -111,19 +111,19 @@ tags:
 
 备注：因为使用了自动文档生成工具，所以为了避免文档输出混乱，备注需要统一的规则。除`types`文件下的方法，其余的都需要添加`@ignore`阻止文档的自动生成，
 
-![图1](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047229.png)
+![图1](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047229.png)
 
-![图2](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047515.png)
+![图2](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047515.png)
 
 ### 单测
 
 1. `unit/index.spec.ts`文件用来测试实例是否挂载了对应的方法(`/src/core/**.ts`)，每次在`core`下新增方法后，都需要到这个文件下的对应单测模块中添加测试实例，用于确保实例有此方法，相当于双重保险；
 2. `unit/core/**.spec.ts`为对应的`core`下的核心单测文件，每个单测方法都有一个大的`describe`包裹数个`it`，方便单测报错时，定位具体哪个文件下的哪个方法报错，错误日志会输出`describe`和`it`的描述文案；
-	![](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047549.png)
+	![](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047549.png)
 3. 单测文件需要把要测试的代码中的每一个分支，每一行代码，每一个判断都要覆盖，需要完成方法覆盖100%，分支覆盖98%，行数覆盖100%的条件，推荐全部100%；
-	![](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047925.png)
+	![](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047925.png)
 4. 单测结果可以在控制台或者`coverage/lcov-report/index.html`查看详情。
-	![](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047418.png)
+	![](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047418.png)
 	- 第一行10x 代表当前行走了10次
 	- 黄色img[0]表示单测这行代码没有覆盖到
 	- `if`前的E标识，说明此`if`判断的`else`条件没有覆盖
@@ -139,7 +139,7 @@ vue项目目录为`home/*`。
 
 需要用到的项目，使用`npm i -S xbb-utils`来安装最新版本，之后再需要用到的页面`import xbb from 'xbb-utils'`
 
-![代码提示](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047096.png)
+![代码提示](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047096.png)
 
 ### 功能开发
 

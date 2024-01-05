@@ -34,14 +34,14 @@ cordova plugin add cordova-plugin-weibosdk --variable WEIBO_APP_ID=YOUR_WEIBO_AP
 在你的config.xml文件中添加
  ```<preference name="REDIRECTURI" value="YOUR_WEIBO_REDIRECTURI" />```
 必须要和微博开放平台里面的OAuth2.0 授权设置的一样
-![](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171442895.png)
+![](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171442895.png)
 
 #### 3.2 QQ需要装@ionic-native/qqsdk
 
 ```
 npm install @ionic-native/qqsdk --save
 ```
-![](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171442379.png)
+![](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171442379.png)
 
 #### 3.3 微信、微博需要在编译文件中声明变量
 
@@ -50,7 +50,7 @@ declare var Wechat:any;
 declare var WeiboSDK:any;
 ```
 之后就能在需要的地方直接使用Wechat.XXX 或者 WeiboSDK.XXX方法
-![](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171442089.png)
+![](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171442089.png)
 
 #### 4.第三方登录代码
 
@@ -101,7 +101,7 @@ QQLogin(){
 ```
 **需要注意：**
 微信需要认证才能使用；
-![](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171442953.png)
+![](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171442953.png)
 
 微博：
 如果微博报错redirect_uri_mismatch 的话 请看3.1 设置redirecturi

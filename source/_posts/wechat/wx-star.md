@@ -8,12 +8,12 @@ tags:
   - wechat
 ---
 先看效果图
-![效果图](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171507056.gif)
+![效果图](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171507056.gif)
 <!-- more -->
 原理是需要两张图片 一张选中的黄色，一张未选中的灰色
-![选中](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171508974.png)
+![选中](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171508974.png)
 
-![未选中](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171508245.png)
+![未选中](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171508245.png)
 
 1、循环image标签五次
 2、绑定点击事件

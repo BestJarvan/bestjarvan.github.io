@@ -11,7 +11,7 @@ tags:
 
 小程序用scroll-view 内置跳转动画 实现起来还是挺简单的；
 <!-- more -->
-![第一种](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171421692.png)
+![第一种](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171421692.png)
 
 循环对象展示数据  可以直接使用都是处理好的
 
@@ -22,7 +22,7 @@ tags:
 ***
 之后用node把格式又改了一边，前端循环好循环一点 ，两种格式  都可以用
 
-![第二种](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171421368.png)
+![第二种](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171421368.png)
 
 好久不用node写东西，忽然还有点不适应...
 
@@ -32,4 +32,4 @@ tags:
 
 ***
 随手写了个原生js 的 demo ，动画没时间写将就参考下
-![demo](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171421829.gif)
+![demo](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171421829.gif)

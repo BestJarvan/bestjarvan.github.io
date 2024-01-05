@@ -19,7 +19,7 @@ tags:
 
 `--registry http://npm.xbongbong.com.cn/`
 
-![](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221046249.png)
+![](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221046249.png)
 
 ### 二、发布npm包
 
@@ -36,7 +36,7 @@ tips：~ * ^ 和无前缀的区别
 - * 这意味着安装最新版本的依赖包
 - 不写前缀——锁版本，比如1.2.3只会下载1.2.3版本代码，若没有对应版本则会下载失败
 
-![](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047766.png)
+![](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047766.png)
 
 ### 三、私有平台
 
@@ -44,5 +44,5 @@ tips：~ * ^ 和无前缀的区别
 
 私有平台已配置上游源，淘宝源和npm官方源，所以可以放心使用，找不到的包会现在淘宝源找，没找到再去官方源找。
 
-![](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047705.png)
+![](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221047705.png)
 

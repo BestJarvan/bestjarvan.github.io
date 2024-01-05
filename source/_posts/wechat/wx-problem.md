@@ -10,7 +10,7 @@ tags:
 项目中遇到一些问题，不定期更新，多字预警。
 
 1、富文本展示   text有一个decode可以解析textarea中的换行符 等符号 实现简单富文本展示 并且层级不会在最高级、可控制
-![image.png](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171420624.png)
+![image.png](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171420624.png)
 <!-- more -->
 2、wx.setStorageSync 微信同步保存缓存 调用过多可能会报错 本地保存10MB以内 如果数据过大  在少数手机上会保存超时 解决办法 过大的数据不保存在本地 用的时候直接获取网络请求或者本地请求 (项目中遇到一个两年前的华为手机，数据量较大时会超时报错) 使用sync推荐trycatch包裹、实际项目中某些手机会报错 推荐用异步方法 wx.setStorage({})
 
@@ -50,7 +50,7 @@ new Date("2018-06-01T00:00:00") / 1000 - 28800
 11、项目如果用到第三方框架那么复杂的封装可以使用webpack、gulp等模块打包开发工具自定义开发可以更加契合自身项目的业务场景、按需引入 scss 、 npm、 图片压缩等提高开发效率、缩小代码体积毕竟小程序有主体包2m 分包总大小8m的限制
 
 12、一些特殊组件例如弹窗等可以参考vue 的函数式组件，通过小程的selectComponent方法实现插入，在需要用到的地方留一个锚点元素所有参数方法都在js使用中注入
-![image.png](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171420368.png)
+![image.png](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171420368.png)
 
 [^router]: 小程序路由堆栈最多只有10条 超出替换数组最前面的
 [^publish]: Vue项目中可以使用发布订阅着模式页可以使用一个空的vue实例，通过vue内置方法\$on、\$emit、\$off等也可实现 原理相同

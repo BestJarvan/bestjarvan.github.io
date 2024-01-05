@@ -43,11 +43,11 @@ function fn2 () {
 
 说到异步编程，那么就有必要了解js的事件循环机制Event Loop
 
-![image.png](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171427632.png)
+![image.png](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171427632.png)
 
 #### 1. 栈和队列
 
-![image.png](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171427417.png)
+![image.png](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171427417.png)
 
 栈：    后进先出（LIFO-last in first out）:最后插入的元素最先出来。
 

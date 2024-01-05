@@ -228,6 +228,6 @@ http.createServer(function (req, res) {
 });
 ```
 ### 4.在db.txt文件中可以查看注册信息
-![](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171411744.png)
+![](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171411744.png)
 
 ------end------

@@ -9,7 +9,7 @@ tags:
 ---
 
 2018年11月6日更新
-![新版效果](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171421576.gif)
+![新版效果](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171421576.gif)
 
 ## 修改：
   1. 新增半透明mask背景
@@ -24,7 +24,7 @@ tags:
 进一步封装picker-view  使用高德地图城市数据 需要联网或者自行下载到本地
 
 先看效果：
-![2.gif](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171444152.gif)
+![2.gif](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171444152.gif)
 
 
 

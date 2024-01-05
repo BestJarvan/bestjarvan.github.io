@@ -8,7 +8,7 @@ tags:
   - javascript
 ---
 1. [运算符优先级](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
-![image](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112271513665.png)
+![image](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112271513665.png)
 <!-- more -->
 2. 优先考虑使用.表示法，因为它更紧凑且可读性更好，但是如果你尝试检索一个不一定存在的值，则需使用['string']写法，它将返回一个`undefined`，若尝试从`undefined`的成员属性中取值，则会导致 TypeError 异常，这时可以通过`&&`运算符避免错误
    ```javascript
@@ -104,7 +104,7 @@ tags:
     const myCat = cat({name: 'lisi'})
     ```
 
-11. 正则尾部符号意义: g(global)/i(ignoreCase)/m(multiline)![image-20211229142706807](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112291427083.png)
+11. 正则尾部符号意义: g(global)/i(ignoreCase)/m(multiline)![image-20211229142706807](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112291427083.png)
 
 12. 用正则表达式字面量创建RegExp对象共享**同一个单利**：
 

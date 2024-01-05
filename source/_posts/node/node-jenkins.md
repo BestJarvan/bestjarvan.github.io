@@ -18,7 +18,7 @@ tags:
 
 本文就讲解如何通过API完成测试环境的构建工作，生产环境不推荐这样做，生产环境一般都有严格的上线流程和权限控制。
 
-![image-20230831200429836](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202308312004869.png)
+![image-20230831200429836](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202308312004869.png)
 
 <!-- more -->
 [github仓库](https://github.com/BestJarvan/helper-cli)
@@ -182,7 +182,7 @@ function logBuild(id) {
 
 5. `shell`脚本会自动在`build`文件夹下生成一个`token.json`的文件，可以把这个文件加入到`.gitignore`里面，不需要提交到远端
 
-    ![image-20230831200256923](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202308312002955.png)
+    ![image-20230831200256923](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202308312002955.png)
 
 #### 完整版
 jenkins-init
@@ -310,7 +310,7 @@ function logBuild(id) {
 }
 ```
 
-![image-20230831200141757](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202308312001802.png)
+![image-20230831200141757](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202308312001802.png)
 
 开发拉取代码后，首次需要运行`npm run init:jen`生成配置文件，之后每次发布测试环境可以运行`npm run deploy:jen`触发构建，若需要合并test分支，则可以在jenkins中配置自动合并。
 

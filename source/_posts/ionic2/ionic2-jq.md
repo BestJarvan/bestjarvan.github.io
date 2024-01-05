@@ -10,7 +10,7 @@ tags:
   - angular
 ---
 先看效果图
-![拖拽元素](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171507697.gif)
+![拖拽元素](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171507697.gif)
 <!-- more -->
 1、这里用到了jq 所以第一步我们在index 中引入 两个必须的jq
 ```

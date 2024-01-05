@@ -346,4 +346,4 @@ this.db.searchIndex(name, '索引', '索引值').then().catch()
 
 功能再强大，不兼容也不行，下面是浏览器兼容图，数据来源 [can i use](https://caniuse.com/#search=IndexDB)
 
-![浏览器兼容情况](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221109134.png)
+![浏览器兼容情况](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202112221109134.png)

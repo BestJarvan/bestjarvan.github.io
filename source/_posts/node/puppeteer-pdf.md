@@ -33,5 +33,5 @@ sudo fc-cache -fv
 ```
 
 
-![#11494](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/image-20231228174532723.png)
+![#11494](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/image-20231228174532723.png)
 

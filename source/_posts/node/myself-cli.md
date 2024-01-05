@@ -13,7 +13,7 @@ tags:
 
 首先从零搭建一套前端脚手架需要用到最核心的一个库就是[`commander`](https://github.com/tj/commander.js/blob/HEAD/Readme_zh-CN.md)
 
-![commanderjs](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051127055.png)
+![commanderjs](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051127055.png)
 <!-- more -->
 
 [github仓库](https://github.com/BestJarvan/helper-cli)
@@ -299,12 +299,12 @@ module.exports = () => {
 }
 ```
 
-![logo](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051142236.png)
+![logo](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051142236.png)
 
 
 开发中我们可以使用`npm link` 把我们开发中的指令关联到全局指令中，我们可以全局使用`helper-cli -h`查看帮助
 
-![help](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051144103.png)
+![help](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202309051144103.png)
 
 
 

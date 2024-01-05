@@ -17,24 +17,24 @@ tags:
 #使用方法
 1. 需要修改package.json 的scrpts 加一条create 或者自定义名字 主要是为了我们在terminal中输入指令后运行对应的脚本
 
-![package.json](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171443157.png)
+![package.json](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171443157.png)
 
 2. 在项目根目录新建一个template文件夹放自己的模板文件
    文件内容根据项目需要自行修改
 
-![模板](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171443159.png)
+![模板](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171443159.png)
 
 3. 之后在build文件夹下新建 create.sh 脚本文件 (代码在下面)
 
 4. 之后在terminal中输入 npm run create 指令 这个指令支持 后面携带一个不必传参数作为文件名 (npm run create xxxx)  或者直接输入npm run create
 
-![效果](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171444961.gif)
+![效果](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171444961.gif)
 
 文件名不能重复 如果重复不会覆盖原有文件 只会输出错误
-![名称重复](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171444987.gif)
+![名称重复](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171444987.gif)
 
 5. 生成后的文件以及文件内容
-![生成后的文件](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171444727.png)
+![生成后的文件](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171444727.png)
 
 #create.sh 脚本文件
 修改```COMPONENT_PATH``` 和 ```PAGE_PATH ``` 路径改变为自己真实模板路径

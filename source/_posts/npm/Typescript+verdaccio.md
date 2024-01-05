@@ -180,7 +180,7 @@ gulp.task('default',
 
 `jest --coverage // 生成测试覆盖率`<br />
 
-![测试结果](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509157.png)
+![测试结果](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509157.png)
 
 
 ### 文档输出
@@ -203,7 +203,7 @@ gulp.task('default',
 2. gitee pages简单的设置下入口文件(比如docs/index.html)就会生产对应的在线文档链接
 3. 使用 git hooks搭配 lint-staged 在提交时先去格式化暂存区代码，保持代码干净之后push代码
 
-![gitee pages](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509630.png)
+![gitee pages](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509630.png)
 
 
 ### 打包
@@ -243,9 +243,9 @@ tips: 如果跟我一样不喜欢每次发布都要输入--registry，那么可�
 
 ### 项目中使用
 
-![代码提示](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509895.png)
+![代码提示](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509895.png)
 
-![代码提示](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509773.png)
+![代码提示](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202201171509773.png)
 
 [^pm2]:  * `pm2 start verdaccio` 启动verdaccio<br />* `pm2 stop verdaccio(all) ` 停掉verdaccio(或全部)<br />* `pm2 delete verdaccio` 删除verdaccio<br />* `pm2 show verdaccio` 显示verdaccio运行日志
 

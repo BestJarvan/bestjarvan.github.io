@@ -51,7 +51,7 @@ tags:
 
 ### 一. [qiankun](https://github.com/umijs/qiankun)
 
-![d1a6cb48359cf96be6b4cd750a241dfa.png](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303201601278.png)
+![d1a6cb48359cf96be6b4cd750a241dfa.png](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303201601278.png)
 
 图片来源：https://blog.csdn.net/xgangzai/article/details/128489706
 
@@ -278,7 +278,7 @@ module.exports = {
 
 ### 二. [wujie](https://github.com/Tencent/wujie)
 
-![img](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303201438420.webp)
+![img](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303201438420.webp)
 
 #### 基座应用
 
@@ -408,7 +408,7 @@ if (window.__POWERED_BY_WUJIE__) {
 
 ### 三、[micro-app](https://github.com/micro-zoe/micro-app)
 
-![image](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303171505687.png)
+![image](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303171505687.png)
 
 #### 基座应用
 
@@ -617,7 +617,7 @@ export default router;
 
 ### 四. [garfish](https://github.com/web-infra-dev/garfish)
 
-![设计理念](https://fastly.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303161957251.image)
+![设计理念](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/202303161957251.image)
 
 ### 五. 本地跨域解决方案
 
