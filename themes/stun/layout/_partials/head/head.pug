@@ -41,16 +41,16 @@ if theme.pwa.enable
   if theme.pwa.theme_color
     meta(name="theme-color" content=theme.pwa.theme_color)
   if theme.pwa.manifest
-    link(rel="manifest" href=`${url_for(theme.pwa.manifest)}?v=${stun_env('version')}`)
+    link(rel="manifest" href=`${url_for(theme.pwa.manifest)}`)
 
 if theme.favicon.small
-  link(rel="icon" href=`${url_for(theme.favicon.small)}?v=${stun_env('version')}` type="image/png" sizes="16x16")
+  link(rel="icon" href=`${url_for(theme.favicon.small)}` type="image/png" sizes="16x16")
 if theme.favicon.medium
-  link(rel="icon" href=`${url_for(theme.favicon.medium)}?v=${stun_env('version')}` type="image/png" sizes="32x32")
+  link(rel="icon" href=`${url_for(theme.favicon.medium)}` type="image/png" sizes="32x32")
 if theme.favicon.apple_touch_icon
-  link(rel="apple-touch-icon" href=`${url_for(theme.favicon.apple_touch_icon)}?v=${stun_env('version')}` sizes="180x180")
+  link(rel="apple-touch-icon" href=`${url_for(theme.favicon.apple_touch_icon)}` sizes="180x180")
 if theme.favicon.safari_pinned_tab
-  link(rel="mask-icon" href=`${url_for(theme.favicon.safari_pinned_tab)}?v=${stun_env('version')}` color="#54bcff")
+  link(rel="mask-icon" href=`${url_for(theme.favicon.safari_pinned_tab)}` color="#54bcff")
 if theme.favicon.msapplication
   meta(name="msapplication-TileImage" content=`${url_for(theme.favicon.msapplication)}`)
   meta(name="msapplication-TileColor" content="#000000")
@@ -103,7 +103,7 @@ if theme.post_widget.share.enable
   - if (theme.cdn.share_css) share_css = theme.cdn.share_css;
   link(rel="stylesheet" href=share_css type="text/css")
 
-link(rel="stylesheet" href=`${url_for(theme.css)}/index.css?v=${stun_env('version')}`)
+link(rel="stylesheet" href=`${url_for(theme.css)}/index.css`)
 
 if theme.google_analytics
   link(rel="dns-prefetch" href="https://www.googletagmanager.com")
