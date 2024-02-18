@@ -824,7 +824,7 @@ pjax:
 google_adsense:
   enable: true
   client: ca-pub-6766098619288922
-  js_src: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
+  js_src: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6766098619288922
 
 # The links with `target="_blank"` attribute.
 external_link:
