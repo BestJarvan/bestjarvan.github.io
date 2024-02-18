@@ -822,8 +822,8 @@ pjax:
 
 # Google AdSense
 google_adsense:
-  enable: false
-  client:
+  enable: true
+  client: ca-pub-6766098619288922
   js_src: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
 
 # The links with `target="_blank"` attribute.
