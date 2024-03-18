@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.jiangyh.cn/2024/03/15/js/ResizeObserver/</loc>
+    <lastmod>2024-03-18</lastmod>
+  </url>
+  <url>
     <loc>https://www.jiangyh.cn/2022/05/23/wechat/wx-html/</loc>
     <lastmod>2024-03-18</lastmod>
   </url>
@@ -117,11 +121,11 @@
     <lastmod>2018-06-08</lastmod>
   </url>
   <url>
-    <loc>https://www.jiangyh.cn/2018/03/24/wechat/wx-city-picker/</loc>
+    <loc>https://www.jiangyh.cn/2018/03/24/wechat/wx-A-Z/</loc>
     <lastmod>2018-03-24</lastmod>
   </url>
   <url>
-    <loc>https://www.jiangyh.cn/2018/03/24/wechat/wx-A-Z/</loc>
+    <loc>https://www.jiangyh.cn/2018/03/24/wechat/wx-city-picker/</loc>
     <lastmod>2018-03-24</lastmod>
   </url>
   <url>
