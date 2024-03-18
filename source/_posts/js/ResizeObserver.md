@@ -1,5 +1,5 @@
 ---
-title: Web API: ResizeObserver详解
+title: Web API-ResizeObserver详解
 date: 2024.3.15 17:29
 categories: 
   - js
