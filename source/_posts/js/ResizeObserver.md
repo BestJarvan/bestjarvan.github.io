@@ -17,6 +17,8 @@ Resize Observer API 提供了一种高性能的机制，通过该机制，代码
 
 由于以上种种原因，就迎来了一个新的API`ResizeObserver API`
 
+<!-- more -->
+
 #### Methods
 
 `ResizeObserver`提供了三个方法:
