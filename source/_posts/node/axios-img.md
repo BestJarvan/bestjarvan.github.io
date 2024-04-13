@@ -1,5 +1,5 @@
 ---
-title: puppeteer加载动态网络图片
+title: puppeteer生成pdf加载动态网络图片
 date: 2024.4.10 20:29
 categories: 
   - node
