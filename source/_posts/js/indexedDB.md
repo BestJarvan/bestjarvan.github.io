@@ -66,7 +66,7 @@ request.onupgradeneeded = ({ target: { result } }) => {
 }
 ```
 
-![1](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/MeYVOLxGWMYAOpz2/img/66cc1241-764f-49f5-ba5c-f03599eb3a3e.png)
+![1](https://gcore.jsdelivr.net/gh/BestJarvan/pic-imgs/imgs/66cc1241-764f-49f5-ba5c-f03599eb3a3e.png)
 
 现在，我们新建了一个名字叫做demoBase的数据库，那么光有数据库是不够的，我们还需要新建对象仓库(object store)类似于MySQL的表
 
